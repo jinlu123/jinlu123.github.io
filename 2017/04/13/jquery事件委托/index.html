@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>事件冒泡 | JinLu&#39;s Blog</title>
+    <title>jquery事件委托 | JinLu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
     
 
     
-    <meta name="description" content="什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。 事件冒泡的作用事件冒泡允许多个操作">
+    <meta name="description" content="事件委托 事件委托就是利用冒泡的原理，把事件加到父级上，通过判断事件来源的子集，执行相应的操作，事件委托首先可以极大减少事件绑定次数，提高性能；其次可以让新加入的子元素也可以拥有相同的操作。  一般绑定事件的写法1234567891011121314$(function()&amp;#123;    $ali = $(&amp;apos;#list li&amp;apos;);    $ali.click(functio">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件冒泡">
-<meta property="og:url" content="http://yoursite.com/2017/04/13/事件冒泡/index.html">
+<meta property="og:title" content="jquery事件委托">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/jquery事件委托/index.html">
 <meta property="og:site_name" content="JinLu's Blog">
-<meta property="og:description" content="什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。 事件冒泡的作用事件冒泡允许多个操作">
-<meta property="og:updated_time" content="2017-05-08T10:53:09.551Z">
+<meta property="og:description" content="事件委托 事件委托就是利用冒泡的原理，把事件加到父级上，通过判断事件来源的子集，执行相应的操作，事件委托首先可以极大减少事件绑定次数，提高性能；其次可以让新加入的子元素也可以拥有相同的操作。  一般绑定事件的写法1234567891011121314$(function()&amp;#123;    $ali = $(&amp;apos;#list li&amp;apos;);    $ali.click(functio">
+<meta property="og:updated_time" content="2017-05-08T11:59:11.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事件冒泡">
-<meta name="twitter:description" content="什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。 事件冒泡的作用事件冒泡允许多个操作">
+<meta name="twitter:title" content="jquery事件委托">
+<meta name="twitter:description" content="事件委托 事件委托就是利用冒泡的原理，把事件加到父级上，通过判断事件来源的子集，执行相应的操作，事件委托首先可以极大减少事件绑定次数，提高性能；其次可以让新加入的子元素也可以拥有相同的操作。  一般绑定事件的写法1234567891011121314$(function()&amp;#123;    $ali = $(&amp;apos;#list li&amp;apos;);    $ali.click(functio">
 
     
     <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/13/事件冒泡/" title="事件冒泡" itemprop="url">事件冒泡</a>
+      <a href="/2017/04/13/jquery事件委托/" title="jquery事件委托" itemprop="url">jquery事件委托</a>
   </h1>
   <p class="article-author">By
        
@@ -97,18 +97,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是事件冒泡"><span class="toc-number">1.</span> <span class="toc-text">什么是事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件冒泡的作用"><span class="toc-number">2.</span> <span class="toc-text">事件冒泡的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻止事件冒泡"><span class="toc-number">3.</span> <span class="toc-text">阻止事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻止默认行为"><span class="toc-number">4.</span> <span class="toc-text">阻止默认行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#合并阻止操作"><span class="toc-number">5.</span> <span class="toc-text">合并阻止操作</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件委托"><span class="toc-number">1.</span> <span class="toc-text">事件委托</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一般绑定事件的写法"><span class="toc-number">1.0.1.</span> <span class="toc-text">一般绑定事件的写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件委托的写法"><span class="toc-number">1.0.2.</span> <span class="toc-text">事件委托的写法</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h4 id="什么是事件冒泡"><a href="#什么是事件冒泡" class="headerlink" title="什么是事件冒泡"></a>什么是事件冒泡</h4><p>在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。</p>
-<h4 id="事件冒泡的作用"><a href="#事件冒泡的作用" class="headerlink" title="事件冒泡的作用"></a>事件冒泡的作用</h4><p>事件冒泡允许多个操作被集中处理（把事件处理器添加到一个父级元素上，避免把事件处理器添加到多个子级元素上），它还可以让你在对象层的不同级别捕获事件。</p>
-<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><p>事件冒泡机制有时候是不需要的，需要阻止掉，通过 event.stopPropagation() 来阻止</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$(function()&#123;</div><div class="line">    var $box1 = $(&apos;.father&apos;);</div><div class="line">    var $box2 = $(&apos;.son&apos;);</div><div class="line">    var $box3 = $(&apos;.grandson&apos;);</div><div class="line">    $box1.click(function() &#123;</div><div class="line">        alert(&apos;father&apos;);</div><div class="line">    &#125;);</div><div class="line">    $box2.click(function() &#123;</div><div class="line">        alert(&apos;son&apos;);</div><div class="line">    &#125;);</div><div class="line">    $box3.click(function(event) &#123;</div><div class="line">        alert(&apos;grandson&apos;);</div><div class="line">        event.stopPropagation();</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">    $(document).click(function(event) &#123;</div><div class="line">        alert(&apos;grandfather&apos;);</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">......</div><div class="line"></div><div class="line">&lt;div class=&quot;father&quot;&gt;</div><div class="line">    &lt;div class=&quot;son&quot;&gt;</div><div class="line">        &lt;div class=&quot;grandson&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><p>阻止表单提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;#form1&apos;).submit(function(event)&#123;</div><div class="line">    event.preventDefault();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="合并阻止操作"><a href="#合并阻止操作" class="headerlink" title="合并阻止操作"></a>合并阻止操作</h4><p>实际开发中，一般把阻止冒泡和阻止默认行为合并起来写，合并写法可以用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// event.stopPropagation();</div><div class="line">// event.preventDefault();</div><div class="line"></div><div class="line">// 合并写法：</div><div class="line">return false;</div></pre></td></tr></table></figure>
+		<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><blockquote>
+<p>事件委托就是利用冒泡的原理，把事件加到父级上，通过判断事件来源的子集，执行相应的操作，事件委托首先可以极大减少事件绑定次数，提高性能；其次可以让新加入的子元素也可以拥有相同的操作。</p>
+</blockquote>
+<h4 id="一般绑定事件的写法"><a href="#一般绑定事件的写法" class="headerlink" title="一般绑定事件的写法"></a>一般绑定事件的写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(function()&#123;</div><div class="line">    $ali = $(&apos;#list li&apos;);</div><div class="line">    $ali.click(function() &#123;</div><div class="line">        $(this).css(&#123;background:&apos;red&apos;&#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line">...</div><div class="line">&lt;ul id=&quot;list&quot;&gt;</div><div class="line">    &lt;li&gt;1&lt;/li&gt;</div><div class="line">    &lt;li&gt;2&lt;/li&gt;</div><div class="line">    &lt;li&gt;3&lt;/li&gt;</div><div class="line">    &lt;li&gt;4&lt;/li&gt;</div><div class="line">    &lt;li&gt;5&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h4 id="事件委托的写法"><a href="#事件委托的写法" class="headerlink" title="事件委托的写法"></a>事件委托的写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(function()&#123;</div><div class="line">    $list = $(&apos;#list&apos;);</div><div class="line">    $list.delegate(&apos;li&apos;, &apos;click&apos;, function() &#123;</div><div class="line">        $(this).css(&#123;background:&apos;red&apos;&#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line">...</div><div class="line">&lt;ul id=&quot;list&quot;&gt;</div><div class="line">    &lt;li&gt;1&lt;/li&gt;</div><div class="line">    &lt;li&gt;2&lt;/li&gt;</div><div class="line">    &lt;li&gt;3&lt;/li&gt;</div><div class="line">    &lt;li&gt;4&lt;/li&gt;</div><div class="line">    &lt;li&gt;5&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,16 +124,16 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/04/13/解决margin-top塌陷问题/" title="margin-top塌陷">
+ <a href="/2017/04/13/清除浮动/" title="清除浮动">
   <span>
-  margin-top塌陷</span>
+  清除浮动</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/04/13/javascript字符串快速反转/"  title="javascript中快速字符串反转">
- <span>javascript中快速字符串反转
+<a href="/2017/04/13/解决margin-top塌陷问题/"  title="margin-top塌陷">
+ <span>margin-top塌陷
 </span>
 </a>
 </div>

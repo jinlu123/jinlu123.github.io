@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>事件冒泡 | JinLu&#39;s Blog</title>
+    <title>清除浮动 | JinLu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
     
 
     
-    <meta name="description" content="什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。 事件冒泡的作用事件冒泡允许多个操作">
+    <meta name="description" content="清除浮动3种方法 父级上增加属性overflow：hidden 在最后一个子元素的后面加一个空的div，给它样式属性 clear:both（不推荐） 使用成熟的清浮动样式类，clearfix1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;style type">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件冒泡">
-<meta property="og:url" content="http://yoursite.com/2017/04/13/事件冒泡/index.html">
+<meta property="og:title" content="清除浮动">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/清除浮动/index.html">
 <meta property="og:site_name" content="JinLu's Blog">
-<meta property="og:description" content="什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。 事件冒泡的作用事件冒泡允许多个操作">
-<meta property="og:updated_time" content="2017-05-08T10:53:09.551Z">
+<meta property="og:description" content="清除浮动3种方法 父级上增加属性overflow：hidden 在最后一个子元素的后面加一个空的div，给它样式属性 clear:both（不推荐） 使用成熟的清浮动样式类，clearfix1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;style type">
+<meta property="og:updated_time" content="2017-05-08T12:13:58.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事件冒泡">
-<meta name="twitter:description" content="什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。 事件冒泡的作用事件冒泡允许多个操作">
+<meta name="twitter:title" content="清除浮动">
+<meta name="twitter:description" content="清除浮动3种方法 父级上增加属性overflow：hidden 在最后一个子元素的后面加一个空的div，给它样式属性 clear:both（不推荐） 使用成熟的清浮动样式类，clearfix1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;style type">
 
     
     <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/13/事件冒泡/" title="事件冒泡" itemprop="url">事件冒泡</a>
+      <a href="/2017/04/13/清除浮动/" title="清除浮动" itemprop="url">清除浮动</a>
   </h1>
   <p class="article-author">By
        
@@ -97,18 +97,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是事件冒泡"><span class="toc-number">1.</span> <span class="toc-text">什么是事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件冒泡的作用"><span class="toc-number">2.</span> <span class="toc-text">事件冒泡的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻止事件冒泡"><span class="toc-number">3.</span> <span class="toc-text">阻止事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻止默认行为"><span class="toc-number">4.</span> <span class="toc-text">阻止默认行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#合并阻止操作"><span class="toc-number">5.</span> <span class="toc-text">合并阻止操作</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#清除浮动3种方法"><span class="toc-number">1.</span> <span class="toc-text">清除浮动3种方法</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="什么是事件冒泡"><a href="#什么是事件冒泡" class="headerlink" title="什么是事件冒泡"></a>什么是事件冒泡</h4><p>在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。</p>
-<h4 id="事件冒泡的作用"><a href="#事件冒泡的作用" class="headerlink" title="事件冒泡的作用"></a>事件冒泡的作用</h4><p>事件冒泡允许多个操作被集中处理（把事件处理器添加到一个父级元素上，避免把事件处理器添加到多个子级元素上），它还可以让你在对象层的不同级别捕获事件。</p>
-<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><p>事件冒泡机制有时候是不需要的，需要阻止掉，通过 event.stopPropagation() 来阻止</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$(function()&#123;</div><div class="line">    var $box1 = $(&apos;.father&apos;);</div><div class="line">    var $box2 = $(&apos;.son&apos;);</div><div class="line">    var $box3 = $(&apos;.grandson&apos;);</div><div class="line">    $box1.click(function() &#123;</div><div class="line">        alert(&apos;father&apos;);</div><div class="line">    &#125;);</div><div class="line">    $box2.click(function() &#123;</div><div class="line">        alert(&apos;son&apos;);</div><div class="line">    &#125;);</div><div class="line">    $box3.click(function(event) &#123;</div><div class="line">        alert(&apos;grandson&apos;);</div><div class="line">        event.stopPropagation();</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">    $(document).click(function(event) &#123;</div><div class="line">        alert(&apos;grandfather&apos;);</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">......</div><div class="line"></div><div class="line">&lt;div class=&quot;father&quot;&gt;</div><div class="line">    &lt;div class=&quot;son&quot;&gt;</div><div class="line">        &lt;div class=&quot;grandson&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h4 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h4><p>阻止表单提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;#form1&apos;).submit(function(event)&#123;</div><div class="line">    event.preventDefault();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="合并阻止操作"><a href="#合并阻止操作" class="headerlink" title="合并阻止操作"></a>合并阻止操作</h4><p>实际开发中，一般把阻止冒泡和阻止默认行为合并起来写，合并写法可以用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// event.stopPropagation();</div><div class="line">// event.preventDefault();</div><div class="line"></div><div class="line">// 合并写法：</div><div class="line">return false;</div></pre></td></tr></table></figure>
+		<h4 id="清除浮动3种方法"><a href="#清除浮动3种方法" class="headerlink" title="清除浮动3种方法"></a>清除浮动3种方法</h4><ul>
+<li>父级上增加属性overflow：hidden</li>
+<li>在最后一个子元素的后面加一个空的div，给它样式属性 clear:both（不推荐）</li>
+<li>使用成熟的清浮动样式类，clearfix<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.list&#123;</div><div class="line">		width:210px;</div><div class="line">		/* height:400px; */</div><div class="line">		border:1px solid #000;</div><div class="line">		margin:50px auto 0;</div><div class="line">		list-style:none;</div><div class="line">		padding:0;</div><div class="line">		/* </div><div class="line">		第一种清除浮动的方法：</div><div class="line">		overflow: hidden; </div><div class="line">		*/</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	.list li&#123;</div><div class="line">		width:50px;</div><div class="line">		height:50px;</div><div class="line">		background-color:gold;</div><div class="line">		margin:10px;</div><div class="line">		float:left;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	/* .clearfix:before&#123;</div><div class="line">		content:&quot;&quot;;</div><div class="line">		display:table;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	.clearfix:after&#123;</div><div class="line">		content:&quot;&quot;;</div><div class="line">		display:table;</div><div class="line">		clear:both;</div><div class="line">	&#125; */</div><div class="line"></div><div class="line">	/* 以上两个合并的写法(zoom是为了兼容IE)*/</div><div class="line">	.clearfix:before,.clearfix:after&#123;</div><div class="line">		content:&quot;&quot;;</div><div class="line">		display:table;</div><div class="line">	&#125;</div><div class="line">	.clearfix:after&#123;</div><div class="line">		clear:both;</div><div class="line">	&#125;</div><div class="line">	.clearfix&#123;</div><div class="line">		zoom:1;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,17 +124,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/13/解决margin-top塌陷问题/" title="margin-top塌陷">
-  <span>
-  margin-top塌陷</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/04/13/javascript字符串快速反转/"  title="javascript中快速字符串反转">
- <span>javascript中快速字符串反转
+<a href="/2017/04/13/jquery事件委托/"  title="jquery事件委托">
+ <span>jquery事件委托
 </span>
 </a>
 </div>
