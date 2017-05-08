@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="1#### 现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道: split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 join()将数组成员通过一个分隔符合并成字符串  然后咱们来看下面这段代码:123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var">
+    <meta name="description" content="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道: split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 join()将数组成员通过一个分隔符合并成字符串  然后咱们来看下面这段代码:123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var str2=">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript中快速字符串反转">
 <meta property="og:url" content="http://yoursite.com/2017/04/13/javascript字符串快速反转/index.html">
 <meta property="og:site_name" content="JinLu's Blog">
-<meta property="og:description" content="1#### 现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道: split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 join()将数组成员通过一个分隔符合并成字符串  然后咱们来看下面这段代码:123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var">
-<meta property="og:updated_time" content="2017-05-08T08:25:25.858Z">
+<meta property="og:description" content="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道: split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 join()将数组成员通过一个分隔符合并成字符串  然后咱们来看下面这段代码:123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var str2=">
+<meta property="og:updated_time" content="2017-05-08T08:30:05.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript中快速字符串反转">
-<meta name="twitter:description" content="1#### 现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道: split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 join()将数组成员通过一个分隔符合并成字符串  然后咱们来看下面这段代码:123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var">
+<meta name="twitter:description" content="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道: split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 join()将数组成员通过一个分隔符合并成字符串  然后咱们来看下面这段代码:123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var str2=">
 
     
     <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
@@ -97,11 +97,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先你要知道"><span class="toc-number">1.</span> <span class="toc-text">首先你要知道:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#然后咱们来看下面这段代码"><span class="toc-number">2.</span> <span class="toc-text">然后咱们来看下面这段代码:</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？"><span class="toc-number">1.</span> <span class="toc-text">现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先你要知道"><span class="toc-number">1.1.</span> <span class="toc-text">首先你要知道:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#然后咱们来看下面这段代码"><span class="toc-number">1.2.</span> <span class="toc-text">然后咱们来看下面这段代码:</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#### 现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</div></pre></td></tr></table></figure>
+		<h4 id="现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？"><a href="#现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？" class="headerlink" title="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？"></a>现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</h4><hr>
 <h5 id="首先你要知道"><a href="#首先你要知道" class="headerlink" title="首先你要知道:"></a>首先你要知道:</h5><ul>
 <li>split()把一个字符串分隔成字符串组成的数组</li>
 <li>reverse()把数组反转</li>
