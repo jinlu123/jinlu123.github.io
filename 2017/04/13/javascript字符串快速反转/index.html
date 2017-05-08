@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>JinLu&#39;s Blog</title>
+    <title>javascript中快速字符串反转 | JinLu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
     
 
     
-    <meta name="description" content="javascript中快速字符串反转现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道:   split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 jion()将数组成员通过一个分隔符合并成字符串   然后咱们来看下面这段代码:  123var str=&amp;apos;abcdefghijk12">
+    <meta name="description" content="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道:   split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 jion()将数组成员通过一个分隔符合并成字符串   然后咱们来看下面这段代码:  123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JinLu's Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/08/javascript字符串快速反转/index.html">
+<meta property="og:title" content="javascript中快速字符串反转">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/javascript字符串快速反转/index.html">
 <meta property="og:site_name" content="JinLu's Blog">
-<meta property="og:description" content="javascript中快速字符串反转现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道:   split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 jion()将数组成员通过一个分隔符合并成字符串   然后咱们来看下面这段代码:  123var str=&amp;apos;abcdefghijk12">
-<meta property="og:updated_time" content="2017-05-08T07:40:00.072Z">
+<meta property="og:description" content="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道:   split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 jion()将数组成员通过一个分隔符合并成字符串   然后咱们来看下面这段代码:  123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var">
+<meta property="og:updated_time" content="2017-05-08T08:12:11.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JinLu's Blog">
-<meta name="twitter:description" content="javascript中快速字符串反转现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道:   split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 jion()将数组成员通过一个分隔符合并成字符串   然后咱们来看下面这段代码:  123var str=&amp;apos;abcdefghijk12">
+<meta name="twitter:title" content="javascript中快速字符串反转">
+<meta name="twitter:description" content="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？ 首先你要知道:   split()把一个字符串分隔成字符串组成的数组 reverse()把数组反转 jion()将数组成员通过一个分隔符合并成字符串   然后咱们来看下面这段代码:  123var str=&amp;apos;abcdefghijk123456789&amp;apos;;var">
 
     
     <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
@@ -49,7 +49,7 @@
 				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -65,7 +65,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,27 +81,27 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/08/javascript字符串快速反转/" title="" itemprop="url"></a>
+      <a href="/2017/04/13/javascript字符串快速反转/" title="javascript中快速字符串反转" itemprop="url">javascript中快速字符串反转</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-08T07:40:27.078Z" itemprop="datePublished"> 發表於 2017-05-08</time>
+    <time datetime="2017-04-12T22:51:14.000Z" itemprop="datePublished"> Published 2017-04-13</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript中快速字符串反转"><span class="toc-number">1.</span> <span class="toc-text">javascript中快速字符串反转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？"><span class="toc-number">1.0.1.</span> <span class="toc-text">现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先你要知道"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">首先你要知道:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#然后咱们来看下面这段代码"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">然后咱们来看下面这段代码:</span></a></li></ol></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？"><span class="toc-number">1.</span> <span class="toc-text">现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先你要知道"><span class="toc-number">1.1.</span> <span class="toc-text">首先你要知道:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#然后咱们来看下面这段代码"><span class="toc-number">1.2.</span> <span class="toc-text">然后咱们来看下面这段代码:</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="javascript中快速字符串反转"><a href="#javascript中快速字符串反转" class="headerlink" title="javascript中快速字符串反转"></a>javascript中快速字符串反转</h2><h4 id="现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？"><a href="#现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？" class="headerlink" title="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？"></a>现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</h4><ol>
+		<h4 id="现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？"><a href="#现在有字符串变量：var-str-’abcdefghijk123456789’-如何用最快的方式实现此字符串的反转？" class="headerlink" title="现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？"></a>现在有字符串变量：var str=’abcdefghijk123456789’; 如何用最快的方式实现此字符串的反转？</h4><ol>
 <li><h5 id="首先你要知道"><a href="#首先你要知道" class="headerlink" title="首先你要知道:"></a>首先你要知道:</h5></li>
 </ol>
 <ul>
@@ -130,23 +130,23 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/13/事件冒泡/" title="事件冒泡">
-  <span>
-  事件冒泡</span>
+
+<div class="next">
+<a href="/2017/04/13/事件冒泡/"  title="事件冒泡">
+ <span>事件冒泡
+</span>
 </a>
 </div>
-
 
 </nav>
 
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 <div id="authorInfo">
 	
@@ -362,7 +362,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
