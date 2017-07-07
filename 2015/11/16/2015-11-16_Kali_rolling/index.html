@@ -1,0 +1,571 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Kali_rolling | JinLu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="JinLu">
+    
+
+    
+    <meta name="description" content="Kali_Rolling源# 阿里云kali源1234deb http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb http://mirrors.aliyun.com/k">
+<meta name="keywords" content="Kali_Rolling,Penetration_os,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kali_rolling">
+<meta property="og:url" content="http://yoursite.com/2015/11/16/2015-11-16_Kali_rolling/index.html">
+<meta property="og:site_name" content="JinLu's Blog">
+<meta property="og:description" content="Kali_Rolling源# 阿里云kali源1234deb http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb http://mirrors.aliyun.com/k">
+<meta property="og:updated_time" content="2017-07-05T12:59:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kali_rolling">
+<meta name="twitter:description" content="Kali_Rolling源# 阿里云kali源1234deb http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contribdeb http://mirrors.aliyun.com/k">
+
+    
+    <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/unnamed4_n_mSY_icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="JinLu&#39;s Blog" title="JinLu&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/16/2015-11-16_Kali_rolling/" title="Kali_rolling" itemprop="url">Kali_rolling</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-15T17:37:26.000Z" itemprop="datePublished"> Published 2015-11-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#把中文“桌面”改成英文“Desktop”"><span class="toc-number">1.</span> <span class="toc-text">把中文“桌面”改成英文“Desktop”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装open-vm-tools"><span class="toc-number">2.</span> <span class="toc-text">安装open-vm-tools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体重叠问题解决"><span class="toc-number">3.</span> <span class="toc-text">字体重叠问题解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部分错误解决"><span class="toc-number">4.</span> <span class="toc-text">部分错误解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP问题"><span class="toc-number">5.</span> <span class="toc-text">DHCP问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内网ARP欺骗"><span class="toc-number">6.</span> <span class="toc-text">内网ARP欺骗</span></a></li></ol>
+		
+		</div>
+		
+		<p><strong>Kali_Rolling源</strong><br><strong># 阿里云kali源</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</div><div class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</div><div class="line">deb http://mirrors.aliyun.com/kali-security kali-rolling/updates main contrib non-free</div><div class="line">deb-src http://mirrors.aliyun.com/kali-security kali-rolling/updates main contrib non-free</div></pre></td></tr></table></figure></p>
+<p><strong># 中科大kali源</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</div><div class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</div><div class="line">deb http://mirrors.ustc.edu.cn/kali-security kali-current/updates main contrib non-free</div><div class="line">deb-src http://mirrors.ustc.edu.cn/kali-security kali-current/updates main contrib non-free</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">GRUB引导的时候，选择/dev/sda</div><div class="line"></div><div class="line">arpspoof -i eth0 -t IP 网关     //arp断网</div><div class="line"></div><div class="line">arpspoof -i 网卡 -t 目标IP 网关</div><div class="line"></div><div class="line">fping -asg 192.168.1.0/24     //看局域网当中的ip</div><div class="line"></div><div class="line">echo 1 &gt;/proc/sys</div><div class="line"></div><div class="line">echo 1 &gt;/proc/sys/net/ipv4/ip_forward     //开启IP转发</div><div class="line"></div><div class="line">cat /proc/sys/net/ipv4/ip_forward     //查看内容</div><div class="line"></div><div class="line">ettercap -Tq -i eth0</div><div class="line"></div><div class="line">Ettercap -i eth0 -Tq -M arp:remote /网关IP//目标IP/     //可以代替arpspoof</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="把中文“桌面”改成英文“Desktop”"><a href="#把中文“桌面”改成英文“Desktop”" class="headerlink" title="把中文“桌面”改成英文“Desktop”"></a>把中文“桌面”改成英文“Desktop”</h2><p><strong>先将中文“桌面”重命名为英文“Desktop”</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat .config/user-dirs.dirs</div><div class="line"></div><div class="line">vim .config/user-dirs.dirs</div><div class="line"></div><div class="line">“$HOME/Desktop”</div></pre></td></tr></table></figure>
+<p><strong>另一种适用于某些发行版</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export LANG=en_US</div><div class="line">xdg-user-dirs-gtk-update</div><div class="line">export LANG=zh_CN.UTF-8</div></pre></td></tr></table></figure></p>
+<h2 id="安装open-vm-tools"><a href="#安装open-vm-tools" class="headerlink" title="安装open-vm-tools"></a>安装open-vm-tools</h2><p><code>apt-get update</code></p>
+<p><code>apt-get install open-vm-tools-desktop fuse    //安装开源tools</code></p>
+<p><a href="http://support.huawei.com/huaweiconnect/forum.php?mod=viewthread&amp;tid=94269&amp;extra=" target="_blank" rel="external">参考网址</a></p>
+<h2 id="字体重叠问题解决"><a href="#字体重叠问题解决" class="headerlink" title="字体重叠问题解决"></a>字体重叠问题解决</h2><p><strong>打开终端</strong></p>
+<p><strong>点编辑——配置文件首选项</strong></p>
+<p><strong>勾选自定义字体</strong></p>
+<p><strong>选Droid Sans Mono Bold字体</strong></p>
+<p>**或者 apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy</p>
+<p>//字体选文泉一等宽微米黑 re**</p>
+<h2 id="部分错误解决"><a href="#部分错误解决" class="headerlink" title="部分错误解决"></a>部分错误解决</h2><p><strong>rm -r /var/lib/apt/lists/partial/    //解决部分索引文件</strong></p>
+<p><strong>E: Sub-process /usr/bin/dpkg returned an error code (1)</strong><br><strong>解决方案:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get purge xxx</div><div class="line">sudo apt-get install xxx</div></pre></td></tr></table></figure></p>
+<p><strong>第一步的时候如果提示文件夹非空，rm -r删除文件夹即可</strong><br><a href="http://www.cnblogs.com/eddy-he/archive/2012/06/20/2555918.html" target="_blank" rel="external">参考网址</a></p>
+<p><strong>E: Some index files failed to download.They have been ignored, or old ones used instead.</strong><br><strong>解决方案:</strong><br><strong>第一步查看源地址是否正确</strong><br><strong>第二步查看是否DNS解析问题，添加8.8.8.8，</strong><br><code>vi /etc/resolv.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nameserver 8.8.8.8</div><div class="line">nameserver 8.8.4.4</div></pre></td></tr></table></figure></p>
+<p><strong>或者直接外网</strong><br><a href="http://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&amp;tid=7588" target="_blank" rel="external">参考网址</a></p>
+<h2 id="DHCP问题"><a href="#DHCP问题" class="headerlink" title="DHCP问题"></a>DHCP问题</h2><p>**首先启用网络里面的VM8网卡</p>
+<p>在服务里面开启VM的DHCP服务</p>
+<p>虚拟机设置网络适配器为NAT模式**</p>
+<p><strong>进入linux后，如果DHCP无启用</strong></p>
+<p><code>vi /../etc/network/interfaces</code></p>
+<p><strong>添加里面的内容</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">auto lo</div><div class="line"></div><div class="line">iface lo inet loopback</div><div class="line"></div><div class="line">auto eth0</div><div class="line"></div><div class="line">iface eth0 inet dhcp</div><div class="line"></div><div class="line">auto eth1</div><div class="line"></div><div class="line">iface eth1 inet dhcp</div><div class="line"></div><div class="line">auto eth2</div><div class="line"></div><div class="line">iface eth2 inet dhcp</div><div class="line"></div><div class="line">auto ath0</div><div class="line"></div><div class="line">iface ath0 inet dhcp</div><div class="line"></div><div class="line">auto wlan0</div><div class="line"></div><div class="line">iface wlan0 inet dhcp</div></pre></td></tr></table></figure></p>
+<p><strong>退出vi</strong></p>
+<p><code>/etc/init.d/networking start</code></p>
+<p><strong>重启网络连接</strong><br><code>sudo /etc/init.d/networking restart</code></p>
+<hr>
+<h2 id="内网ARP欺骗"><a href="#内网ARP欺骗" class="headerlink" title="内网ARP欺骗"></a>内网ARP欺骗</h2><p>**目标WinXP：192.168.1.103</p>
+<p>网关：192.168.1.1**</p>
+<p><strong>攻击机Kali_linux：192.168.1.100</strong></p>
+<p><strong>使用命令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">echo 1 &gt;/proc/sys</div><div class="line"></div><div class="line">echo 1 &gt;/proc/sys/net/ipv4/ip_forward</div><div class="line"></div><div class="line">cat /proc/sys/net/ipv4/ip_forward</div><div class="line"></div><div class="line">arpspoof -i eth0 -t 192.168.1.103 192.168.1.1</div><div class="line"></div><div class="line">ettercap -Tq -i eth0</div><div class="line"></div><div class="line">q     //（关闭ettercap命令）</div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/White-hat/">White_hat</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Kali-Rolling/">Kali_Rolling</a><a href="/tags/Penetration-os/">Penetration_os</a><a href="/tags/linux/">linux</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/11/15/2015-11-15_CentOS_6.5_build_blog/" title="CentOS_6.5_build_blog">
+  <span>
+  CentOS_6.5_build_blog</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/11/18/2015-11-18_SSR+Tor/"  title="SSR+Tor(洋葱)">
+ <span>SSR+Tor(洋葱)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/DataAnalysis/" title="DataAnalysis">DataAnalysis<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Django/" title="Django">Django<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Git/" title="Git">Git<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/" title="Other">Other<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/" title="Python">Python<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python-advanced/" title="Python_advanced">Python_advanced<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python语法/" title="Python语法">Python语法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/White-hat/" title="White_hat">White_hat<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/服务器部署/" title="服务器部署">服务器部署<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSR/" title="SSR">SSR<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/破解Wifi/" title="破解Wifi">破解Wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tor-browser/" title="Tor_browser">Tor_browser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://jinlu123.github.io/" target="_blank" title="Jinlu">Jinlu</a> © 2017 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

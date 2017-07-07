@@ -1,0 +1,629 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CentOS_6.5_build_blog | JinLu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="JinLu">
+    
+
+    
+    <meta name="description" content="服务器：腾讯云CentOS 6.5 x32 域名：阿里云top域名trojanazhen.top 远程SSH：Xshell 5远程FTP：Xftp 5  配置安全组服务器创建好后，修改linux的权限，配置安全组 开启linux的22端口 配置XShell配置XShell文件——属性，修改ASCII 127，解决退格键乱码 调整高级设置 添加复制和粘贴的快捷键 文件——新建，名称随便填写，协议默认">
+<meta name="keywords" content="linux,CentOS,lnmp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS_6.5_build_blog">
+<meta property="og:url" content="http://yoursite.com/2015/11/15/2015-11-15_CentOS_6.5_build_blog/index.html">
+<meta property="og:site_name" content="JinLu's Blog">
+<meta property="og:description" content="服务器：腾讯云CentOS 6.5 x32 域名：阿里云top域名trojanazhen.top 远程SSH：Xshell 5远程FTP：Xftp 5  配置安全组服务器创建好后，修改linux的权限，配置安全组 开启linux的22端口 配置XShell配置XShell文件——属性，修改ASCII 127，解决退格键乱码 调整高级设置 添加复制和粘贴的快捷键 文件——新建，名称随便填写，协议默认">
+<meta property="og:image" content="https://s25.postimg.org/7bjqqhj73/image.png">
+<meta property="og:image" content="https://s25.postimg.org/45z50a0kv/image.png">
+<meta property="og:image" content="https://s25.postimg.org/hquid55rj/image.png">
+<meta property="og:image" content="https://s25.postimg.org/l91wvsh9r/image.png">
+<meta property="og:image" content="https://s25.postimg.org/oemilzzvz/image.png">
+<meta property="og:image" content="https://s25.postimg.org/8kc7pv0j3/image.png">
+<meta property="og:image" content="https://s25.postimg.org/nuc2x1w1b/image.png">
+<meta property="og:image" content="https://s25.postimg.org/btqmwbomn/image.png">
+<meta property="og:image" content="https://s25.postimg.org/frdwlqbfz/image.png">
+<meta property="og:image" content="https://s25.postimg.org/au0c0m9gv/image.png">
+<meta property="og:image" content="https://s25.postimg.org/y9i95yt7z/image.png">
+<meta property="og:image" content="https://s25.postimg.org/9himyqc1b/image.png">
+<meta property="og:image" content="https://s25.postimg.org/7qzlx8ui7/image.png">
+<meta property="og:image" content="https://s25.postimg.org/scedp5c33/image.png">
+<meta property="og:image" content="https://s25.postimg.org/ewvydfsz3/image.png">
+<meta property="og:image" content="https://s25.postimg.org/6fwg2ioa7/image.png">
+<meta property="og:image" content="https://s25.postimg.org/wcq4f4rxr/image.png">
+<meta property="og:image" content="https://s25.postimg.org/8a9ak9ban/image.png">
+<meta property="og:image" content="https://s25.postimg.org/r3v3h99in/image.png">
+<meta property="og:image" content="https://s25.postimg.org/4gfub3tyn/image.png">
+<meta property="og:image" content="https://s25.postimg.org/4uh6ape27/image.png">
+<meta property="og:image" content="https://s25.postimg.org/k4h1hw9kf/image.png">
+<meta property="og:image" content="https://s25.postimg.org/w7md5gkmn/image.png">
+<meta property="og:image" content="https://s25.postimg.org/fxw72k9yn/image.png">
+<meta property="og:image" content="https://s25.postimg.org/hecayg29b/image.png">
+<meta property="og:image" content="https://s25.postimg.org/5qi93wd4f/image.png">
+<meta property="og:image" content="https://s25.postimg.org/9be4n4hnz/image.png">
+<meta property="og:image" content="https://s25.postimg.org/4e0k20fov/image.png">
+<meta property="og:image" content="https://s25.postimg.org/lsksaactr/image.png">
+<meta property="og:image" content="https://s25.postimg.org/yy0age6pb/image.png">
+<meta property="og:image" content="https://s25.postimg.org/dcv7ss9yn/image.png">
+<meta property="og:image" content="https://s25.postimg.org/khd11th7z/image.png">
+<meta property="og:image" content="https://s25.postimg.org/6oym66qgf/image.png">
+<meta property="og:image" content="https://s25.postimg.org/4yfl4p8xb/image.png">
+<meta property="og:image" content="https://s25.postimg.org/mpvswwdpr/image.png">
+<meta property="og:image" content="https://s25.postimg.org/o67bf1gmn/image.png">
+<meta property="og:image" content="https://s25.postimg.org/aqkapl84v/image.png">
+<meta property="og:image" content="https://s25.postimg.org/w1hutuq9b/image.png">
+<meta property="og:image" content="https://s25.postimg.org/x51z5tawf/image.png">
+<meta property="og:image" content="https://s25.postimg.org/nlsaccne7/image.png">
+<meta property="og:image" content="https://s25.postimg.org/rjfk1ra7j/image.png">
+<meta property="og:image" content="https://s25.postimg.org/bz86b8033/image.png">
+<meta property="og:updated_time" content="2017-07-05T13:00:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS_6.5_build_blog">
+<meta name="twitter:description" content="服务器：腾讯云CentOS 6.5 x32 域名：阿里云top域名trojanazhen.top 远程SSH：Xshell 5远程FTP：Xftp 5  配置安全组服务器创建好后，修改linux的权限，配置安全组 开启linux的22端口 配置XShell配置XShell文件——属性，修改ASCII 127，解决退格键乱码 调整高级设置 添加复制和粘贴的快捷键 文件——新建，名称随便填写，协议默认">
+<meta name="twitter:image" content="https://s25.postimg.org/7bjqqhj73/image.png">
+
+    
+    <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/unnamed4_n_mSY_icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="JinLu&#39;s Blog" title="JinLu&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/15/2015-11-15_CentOS_6.5_build_blog/" title="CentOS_6.5_build_blog" itemprop="url">CentOS_6.5_build_blog</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-14T17:56:26.000Z" itemprop="datePublished"> Published 2015-11-15</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置安全组"><span class="toc-number">1.</span> <span class="toc-text">配置安全组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置XShell"><span class="toc-number">2.</span> <span class="toc-text">配置XShell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装screen"><span class="toc-number">3.</span> <span class="toc-text">安装screen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装lnmp"><span class="toc-number">4.</span> <span class="toc-text">安装lnmp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加端口"><span class="toc-number">5.</span> <span class="toc-text">添加端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加网站域名"><span class="toc-number">6.</span> <span class="toc-text">添加网站域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名解析"><span class="toc-number">7.</span> <span class="toc-text">域名解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决中文乱码"><span class="toc-number">8.</span> <span class="toc-text">解决中文乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx404解决办法"><span class="toc-number">9.</span> <span class="toc-text">Nginx404解决办法</span></a></li></ol>
+		
+		</div>
+		
+		<p><strong>服务器：腾讯云</strong><br><strong>CentOS 6.5 x32</strong><br><img src="https://s25.postimg.org/7bjqqhj73/image.png" alt="请输入图片描述"></p>
+<p><strong>域名：阿里云top域名</strong><br><a href="http://trojanazhen.top" target="_blank" rel="external">trojanazhen.top</a><br><img src="https://s25.postimg.org/45z50a0kv/image.png" alt="请输入图片描述"></p>
+<p><strong>远程SSH：Xshell 5<br>远程FTP：Xftp 5</strong></p>
+<hr>
+<h2 id="配置安全组"><a href="#配置安全组" class="headerlink" title="配置安全组"></a>配置安全组</h2><p><strong>服务器创建好后，修改linux的权限，配置安全组</strong><br><img src="https://s25.postimg.org/hquid55rj/image.png" alt="请输入图片描述"></p>
+<p><strong>开启linux的22端口</strong><br><img src="https://s25.postimg.org/l91wvsh9r/image.png" alt="请输入图片描述"></p>
+<h2 id="配置XShell"><a href="#配置XShell" class="headerlink" title="配置XShell"></a>配置XShell</h2><p><strong>配置XShell<br>文件——属性，修改ASCII 127，解决退格键乱码</strong><br><img src="https://s25.postimg.org/oemilzzvz/image.png" alt="请输入图片描述"></p>
+<p><strong>调整高级设置</strong><br><img src="https://s25.postimg.org/8kc7pv0j3/image.png" alt="请输入图片描述"></p>
+<p><strong>添加复制和粘贴的快捷键</strong><br><img src="https://s25.postimg.org/nuc2x1w1b/image.png" alt="请输入图片描述"></p>
+<p><strong>文件——新建，名称随便填写，协议默认，主机填写服务器的外网IP，端口号默认</strong><br><img src="https://s25.postimg.org/btqmwbomn/image.png" alt="请输入图片描述"></p>
+<p><strong>用户身份验证，用户名root，密码是自己设置的那个，或者服务商提供，确定</strong><br><img src="https://s25.postimg.org/frdwlqbfz/image.png" alt="请输入图片描述"></p>
+<p><strong>之后连接VPS，弹框提示 接受并保存</strong></p>
+<hr>
+<h2 id="安装screen"><a href="#安装screen" class="headerlink" title="安装screen"></a>安装screen</h2><p><strong>进入系统，安装screen</strong><br><code>yum install screen</code></p>
+<p><strong>提示是否下载，输入</strong><br><code>y</code><br><img src="https://s25.postimg.org/au0c0m9gv/image.png" alt="请输入图片描述"></p>
+<p><strong>创建会话</strong><br><code>screen -S lnmp</code><br><img src="https://s25.postimg.org/y9i95yt7z/image.png" alt="请输入图片描述"></p>
+<p><strong>如果长时间没有点击，可以用命令恢复lnmp的窗口</strong><br><code>screen -R lnmp</code></p>
+<h2 id="安装lnmp"><a href="#安装lnmp" class="headerlink" title="安装lnmp"></a>安装lnmp</h2><p><strong>安装最新的lnmp 1.3</strong><br><code>wget -c http://soft.vpser.net/lnmp/lnmp1.3-full.tar.gz &amp;&amp; tar zxf lnmp1.3-full.tar.gz &amp;&amp; cd lnmp1.3-full &amp;&amp; ./install.sh lnmp</code><br><img src="https://s25.postimg.org/9himyqc1b/image.png" alt="请输入图片描述"></p>
+<p><strong>设置MySQL密码</strong><br><img src="https://s25.postimg.org/7qzlx8ui7/image.png" alt="请输入图片描述"></p>
+<p><strong>开启MySQL ImmoDB，输入</strong><br><code>Y</code><br><img src="https://s25.postimg.org/scedp5c33/image.png" alt="请输入图片描述"></p>
+<p><strong>安装MySQL，选的5.5.x版本</strong><br><img src="https://s25.postimg.org/ewvydfsz3/image.png" alt="请输入图片描述"></p>
+<p><strong>安装PHP，选的5.4.x版本</strong><br><img src="https://s25.postimg.org/6fwg2ioa7/image.png" alt="请输入图片描述"></p>
+<p><strong>可以不安装，回车默认不安装</strong><br><img src="https://s25.postimg.org/wcq4f4rxr/image.png" alt="请输入图片描述"></p>
+<p><strong>按任意键开始安装</strong><br><img src="https://s25.postimg.org/8a9ak9ban/image.png" alt="请输入图片描述"></p>
+<p><strong>安装FTP工具</strong><br><code>yum install vsftpd</code><br><img src="https://s25.postimg.org/r3v3h99in/image.png" alt="请输入图片描述"></p>
+<h2 id="添加端口"><a href="#添加端口" class="headerlink" title="添加端口"></a>添加端口</h2><p><strong>添加8080端口，输入</strong><br><code>vi /etc/sysconfig/iptables</code><br><img src="https://s25.postimg.org/4gfub3tyn/image.png" alt="请输入图片描述"></p>
+<p><strong>添加端口信息，之后保存</strong><br><code>-A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT</code><br><strong>注意3306的端口，用于数据库的外联，开启3306端口，把DROP改为ACCEPT</strong><br><img src="https://s25.postimg.org/4uh6ape27/image.png" alt="请输入图片描述"></p>
+<p><strong>重启防火墙</strong><br><code>service iptables restart</code><br><img src="https://s25.postimg.org/k4h1hw9kf/image.png" alt="请输入图片描述"></p>
+<h2 id="添加网站域名"><a href="#添加网站域名" class="headerlink" title="添加网站域名"></a>添加网站域名</h2><p><strong>添加网站域名，输入</strong><br><code>lnmp vhost add</code><br><img src="https://s25.postimg.org/w7md5gkmn/image.png" alt="请输入图片描述"></p>
+<p><strong>添加域名</strong><br><code>trojanazhen.top</code><br><strong>之后不需要添加更多域名，输入</strong><br><code>n</code><br><img src="https://s25.postimg.org/fxw72k9yn/image.png" alt="请输入图片描述"></p>
+<p><strong>启用伪静态，输入</strong><br><code>y</code><br><img src="https://s25.postimg.org/hecayg29b/image.png" alt="请输入图片描述"></p>
+<p><strong>输入建站模板</strong>（注意，我自己安装的是typecho，如果你安装不同的网站模板，自己填，或者直接填other）<br><code>typecho</code><br><img src="https://s25.postimg.org/5qi93wd4f/image.png" alt="请输入图片描述"></p>
+<p><strong>启用日志，输入</strong><br><code>y</code><br><strong>之后回车默认为域名.log</strong><br><img src="https://s25.postimg.org/9be4n4hnz/image.png" alt="请输入图片描述"></p>
+<p><strong>输入</strong><br><code>y</code><br><strong>之后创建数据库</strong><br><code>boke_user</code><br><strong>设置密码</strong><br><img src="https://s25.postimg.org/4e0k20fov/image.png" alt="请输入图片描述"></p>
+<p><strong>设置成功</strong><br><img src="https://s25.postimg.org/lsksaactr/image.png" alt="请输入图片描述"></p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p><strong>然后去设置域名解析，打开域名网站，</strong><br><img src="https://s25.postimg.org/yy0age6pb/image.png" alt="请输入图片描述"></p>
+<p><strong>立即设置</strong><br><img src="https://s25.postimg.org/dcv7ss9yn/image.png" alt="请输入图片描述"></p>
+<p><strong>之后输入公网IP，确定，然后会自动设置两个解析</strong><br><img src="https://s25.postimg.org/khd11th7z/image.png" alt="请输入图片描述"></p>
+<p><strong>进入域名，trojanazhen.top</strong><br><img src="https://s25.postimg.org/6oym66qgf/image.png" alt="请输入图片描述"></p>
+<p><strong>设置两个域名解析到IP</strong><br><code>vi /etc/hosts</code><br><img src="https://s25.postimg.org/4yfl4p8xb/image.png" alt="请输入图片描述"></p>
+<p><strong>添加</strong><br><code>123.206.209.134 localhost www.trojanazhen.top  xxx</code><br><code>123.206.209.134 localhost trojanazhen.top  xxx</code><br><img src="https://s25.postimg.org/mpvswwdpr/image.png" alt="请输入图片描述"></p>
+<h2 id="解决中文乱码"><a href="#解决中文乱码" class="headerlink" title="解决中文乱码"></a>解决中文乱码</h2><p><strong>解决中文乱码，安装中文支持包</strong><br><code>yum groupinstall &quot;Chinese Support&quot;</code><br><img src="https://s25.postimg.org/o67bf1gmn/image.png" alt="请输入图片描述"></p>
+<p><strong>修改i18n文件</strong><br><code>vi /etc/sysconfig/i18n</code><br><img src="https://s25.postimg.org/aqkapl84v/image.png" alt="请输入图片描述"></p>
+<p><code>LANG=&quot;en_US.UTF-8&quot; 改为LANG=&quot;zh_CN.UTF-8&quot;</code><br><img src="https://s25.postimg.org/w1hutuq9b/image.png" alt="请输入图片描述"></p>
+<p><strong>之后重启</strong></p>
+<h2 id="Nginx404解决办法"><a href="#Nginx404解决办法" class="headerlink" title="Nginx404解决办法"></a>Nginx404解决办法</h2><p><strong>重启之后，中文正常，预览网站，发现只能打开首页，其他均为404，百度解决办法</strong><br><img src="https://s25.postimg.org/x51z5tawf/image.png" alt="请输入图片描述"></p>
+<p><strong>原来是伪静态的设置问题<br>个人解决办法,删掉,域名.conf</strong><br><code>rm -f  /usr/local/nginx/conf/vhost/域名.conf</code><br><img src="https://s25.postimg.org/nlsaccne7/image.png" alt="请输入图片描述"></p>
+<p><strong>然后修改nginx.conf</strong><br><code>vi /usr/local/nginx/conf/nginx.conf</code></p>
+<p><strong>以下是我的伪静态文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">location ~ [^/]\.php(/|$)  </div><div class="line">    &#123;  </div><div class="line">        # comment try_files $uri =404; to enable pathinfo  </div><div class="line">        #try_files $uri =404;  </div><div class="line">        fastcgi_pass  unix:/tmp/php-cgi.sock;  </div><div class="line">        fastcgi_index index.php;  </div><div class="line">        include fastcgi.conf;  </div><div class="line">        include pathinfo.conf;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">        location /nginx_status</div><div class="line">        &#123;</div><div class="line">            stub_status on;</div><div class="line">            access_log   off;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)(\/.*)*$</div><div class="line">        &#123;</div><div class="line">set $path_info &quot;&quot;;</div><div class="line">                set $real_script_name $fastcgi_script_name;</div><div class="line">                if ($fastcgi_script_name ~ &quot;^(.+?\.(gif|jpg|jpeg|png|bmp|swf))(/.+)$&quot;) &#123;</div><div class="line">                        set $real_script_name $1;</div><div class="line">                        set $path_info $2;</div><div class="line">                &#125;</div><div class="line">                fastcgi_param SCRIPT_FILENAME $document_root$real_script_name;</div><div class="line">                fastcgi_param SCRIPT_NAME $real_script_name;</div><div class="line">                fastcgi_param PATH_INFO $path_info;</div><div class="line">            expires      30d;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ .*\.(js|css)?(\/.*)*$</div><div class="line">        &#123;</div><div class="line">set $path_info &quot;&quot;;</div><div class="line">                set $real_script_name $fastcgi_script_name;</div><div class="line">                if ($fastcgi_script_name ~ &quot;^(.+?\.(js|css)?)(/.+)$&quot;) &#123;</div><div class="line">                        set $real_script_name $1;</div><div class="line">                        set $path_info $2;</div><div class="line">                &#125;</div><div class="line">                fastcgi_param SCRIPT_FILENAME $document_root$real_script_name;</div><div class="line">                fastcgi_param SCRIPT_NAME $real_script_name;</div><div class="line">                fastcgi_param PATH_INFO $path_info;</div><div class="line">            expires      12h;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        location ~ /\.</div><div class="line">        &#123;</div><div class="line">            deny all;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">if (-f $request_filename/index.html)&#123;</div><div class="line">    rewrite (.*) $1/index.html break;</div><div class="line">&#125;</div><div class="line">if (-f $request_filename/index.php)&#123;</div><div class="line">    rewrite (.*) $1/index.php;</div><div class="line">&#125;</div><div class="line">if (!-f $request_filename)&#123;</div><div class="line">    rewrite (.*) /index.php;</div><div class="line">&#125;</div><div class="line"></div><div class="line">        access_log  /home/wwwlogs/trojanazhen.log;</div><div class="line">    &#125;</div><div class="line">include vhost/*.conf;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>之后重启nginx</strong><br><code>service nginx restart</code><br><img src="https://s25.postimg.org/rjfk1ra7j/image.png" alt="请输入图片描述"></p>
+<p><strong>打开Xftp<br>文件——新建<br>名称随意，主机为公网IP，协议SFTP，端口22，填入用户名密码</strong><br><img src="https://s25.postimg.org/bz86b8033/image.png" alt="请输入图片描述"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/Blog/">Blog</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/CentOS/">CentOS</a><a href="/tags/lnmp/">lnmp</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/23/2015-10-08_Web_note/" title="Web_note">
+  <span>
+  Web_note</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/11/16/2015-11-16_Kali_rolling/"  title="Kali_rolling">
+ <span>Kali_rolling
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/DataAnalysis/" title="DataAnalysis">DataAnalysis<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Django/" title="Django">Django<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Git/" title="Git">Git<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/" title="Other">Other<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/" title="Python">Python<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python-advanced/" title="Python_advanced">Python_advanced<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python语法/" title="Python语法">Python语法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/White-hat/" title="White_hat">White_hat<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/服务器部署/" title="服务器部署">服务器部署<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSR/" title="SSR">SSR<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/破解Wifi/" title="破解Wifi">破解Wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tor-browser/" title="Tor_browser">Tor_browser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://jinlu123.github.io/" target="_blank" title="Jinlu">Jinlu</a> © 2017 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

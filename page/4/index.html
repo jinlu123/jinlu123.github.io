@@ -13,7 +13,7 @@
     
     <meta property="og:type" content="website">
 <meta property="og:title" content="JinLu's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="JinLu's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JinLu's Blog">
@@ -75,21 +75,18 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/06/19/2017-06-19_BlackArch/" title="BlackArch安装教程" itemprop="url">
+    <a href="/2015/04/14/清除浮动/" title="清除浮动" itemprop="url">
   
-    <h1 itemprop="name">BlackArch安装教程</h1>
+    <h1 itemprop="name">清除浮动</h1>
     
      
-           <p itemprop="description" >BlackArchBlackArch官方下载地址
-官方说最新版ArchLinux包含1805个渗透测试工具
-最新版BlackArch 2017.06.14
-2017.06.14-x86_64下载链接
-
-
-123===&amp;gt; 2017.06.14	- bugfix release</p>
+           <p itemprop="description" >清除浮动3种方法
+父级上增加属性overflow：hidden
+在最后一个子元素的后面加一个空的div，给它样式属性 clear:both（不推荐）
+使用成熟的清浮动样式类，clearfix123456789101112131415161718192021222324252627</p>
         
     
-    <time datetime="2017-06-19T07:32:26.000Z" itemprop="datePublished">2017-06-19</time>
+    <time datetime="2015-04-13T22:03:00.000Z" itemprop="datePublished">2015-04-14</time>
   </a>
 </section>
 
@@ -101,17 +98,18 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/06/17/2017-06-17_激活Pycharm 2017.1/" title="激活Pycharm 2017.1.4" itemprop="url">
+    <a href="/2015/04/13/jquery事件委托/" title="jquery事件委托" itemprop="url">
   
-    <h1 itemprop="name">激活Pycharm 2017.1.4</h1>
+    <h1 itemprop="name">jquery事件委托</h1>
     
      
-           <p itemprop="description" >去官方下载对应平台的Pycharm 2017.1.4
-Windows平台在C:\Windows\System32\drivers\etc\hosts文件中写入下面的内容达到屏蔽Pycharm的激活检测0.0.0.0 account.jetbrains.com
-Linux平台在/e</p>
+           <p itemprop="description" >事件委托
+事件委托就是利用冒泡的原理，把事件加到父级上，通过判断事件来源的子集，执行相应的操作，事件委托首先可以极大减少事件绑定次数，提高性能；其次可以让新加入的子元素也可以拥有相同的操作。
+
+一般绑定事件的写法1234567891011121314$(function()&amp;#1</p>
         
     
-    <time datetime="2017-06-17T03:00:26.000Z" itemprop="datePublished">2017-06-17</time>
+    <time datetime="2015-04-12T22:51:00.000Z" itemprop="datePublished">2015-04-13</time>
   </a>
 </section>
 
@@ -123,18 +121,15 @@ Linux平台在/e</p>
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/06/03/2017-06-03_个人备忘录/" title="个人备忘录" itemprop="url">
+    <a href="/2015/04/13/事件冒泡/" title="事件冒泡" itemprop="url">
   
-    <h1 itemprop="name">个人备忘录</h1>
+    <h1 itemprop="name">事件冒泡</h1>
     
      
-           <p itemprop="description" >17/04/25 - 17/04/2817/05/0317/05/27 - ???17/06/28 - ???
-阿里云服务器http://47.93.234.133
-在线SHA1j加密解密http://tool.geekapp.cn/decrypt.php
-免费IP代理http:</p>
+           <p itemprop="description" >什么是事件冒泡在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活）</p>
         
     
-    <time datetime="2017-06-03T08:10:26.000Z" itemprop="datePublished">2017-06-03</time>
+    <time datetime="2015-04-12T22:51:00.000Z" itemprop="datePublished">2015-04-13</time>
   </a>
 </section>
 
@@ -146,159 +141,25 @@ Linux平台在/e</p>
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/05/25/2017-05-25_配置Ubuntu 17.04/" title="配置Ubuntu 17.04" itemprop="url">
+    <a href="/2015/03/10/初识数据库/" title="MySQL命令脚本操作" itemprop="url">
   
-    <h1 itemprop="name">配置Ubuntu 17.04</h1>
+    <h1 itemprop="name">MySQL命令脚本操作</h1>
     
      
-           <p itemprop="description" >最近出了乌班图17.04，闲着没事配了一份，但是由于支持时间有点短，所以就不写sh了，直接给代码
-配置Ubuntu 17.04首先让中文桌面变成英文的Desktop12export LANG=en_USxdg-user-dirs-gtk-update
-之后保持现有的名称，勾选不再</p>
+           <p itemprop="description" >注意 : 所有的命令都需要加’;’进行结尾
+基本操作命令
+链接数据库
+-u指定登录用户
+-p登录密码
+-h指定登录服务器ip
+
+1mysql -uroot -pmysql;
+查看当前用户下有哪些数据库1show databasea;
+使用数据库1use 数据库名;
+查看当前处于那</p>
         
     
-    <time datetime="2017-05-25T15:24:11.000Z" itemprop="datePublished">2017-05-25</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/05/24/2017-05-24_关于翻墙的一些工具/" title="关于翻墙的一些工具" itemprop="url">
-  
-    <h1 itemprop="name">关于翻墙的一些工具</h1>
-    
-     
-           <p itemprop="description" >Hosts翻墙简单的翻墙可以修改hosts文件实现，实现于Windows、Linux、安卓Windows Hosts文件所在位置C:\Windows\System32\drivers\etc
-拷贝网上的翻墙ip填入hostsGitHub Hosts项目老D Hosts项目
-拷贝翻</p>
-        
-    
-    <time datetime="2017-05-24T07:58:11.000Z" itemprop="datePublished">2017-05-24</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/05/24/2017-05-24_最新油猴插件，破解百度云限速/" title="破解百度云限速" itemprop="url">
-  
-    <h1 itemprop="name">破解百度云限速</h1>
-    
-     
-           <p itemprop="description" >油猴插件，破解百度云限速下载链接 密码: hu9w
-把油猴插件.crx拖到谷歌浏览器的插件列表里面安装
-之后点油猴插件，添加新脚本，把百度网盘脚本.txt里面的内容复制进去
-打开一个百度云的分享链接，点击下载后面的直接下载按钮，就可以调用下载工具进行全速下载(IDM或者迅雷)
-软</p>
-        
-    
-    <time datetime="2017-05-24T03:31:11.000Z" itemprop="datePublished">2017-05-24</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/06/30/2016-06-30_Parrot开发环境/" title="Parrot开发环境" itemprop="url">
-  
-    <h1 itemprop="name">Parrot开发环境</h1>
-    
-     
-           <p itemprop="description" >Parrot Security OS下载地址安装Parrot Security OS
-
-–&amp;gt;修改更新源修改parrot.listvim /etc/apt/source.list.d/parrot.list123456789101112131415# parrot repos</p>
-        
-    
-    <time datetime="2016-06-30T01:26:26.000Z" itemprop="datePublished">2016-06-30</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/05/12/2016-05-12_Navicat_connection_MySQL_error/" title="Navicat_connection_MySQL_error" itemprop="url">
-  
-    <h1 itemprop="name">Navicat_connection_MySQL_error</h1>
-    
-     
-           <p itemprop="description" >Navicat连接MySQL数据库出现error的错误以ubuntu为例
-先切换到root用户sudo -s
-打开MySQL数据库mysql -u用户 -p密码
-输入grant all privileges on **.** to &amp;#39;root&amp;#39;@&amp;#39;%&amp;#3</p>
-        
-    
-    <time datetime="2016-05-12T06:55:26.000Z" itemprop="datePublished">2016-05-12</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/08/2015-11-08_Django_note/" title="Django_note" itemprop="url">
-  
-    <h1 itemprop="name">Django_note</h1>
-    
-     
-           <p itemprop="description" >Django入门
-MVC：模块–&amp;gt;视图–&amp;gt;控制器
-模块只要和数据库进行交互，比如模型类的数据表，应用名_模块名.sql
-views视图就是显示界面用的，模板语言开发
-客户端.发出请求–&amp;gt;控制器.控制器接收请求给视图或者模块，视图封装了一些html、css、js，</p>
-        
-    
-    <time datetime="2016-04-08T13:43:26.000Z" itemprop="datePublished">2016-04-08</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/03/28/2016-03-28_Metasploit Samba服务器漏洞渗透/" title="Metasploit Samba服务器漏洞渗透" itemprop="url">
-  
-    <h1 itemprop="name">Metasploit Samba服务器漏洞渗透</h1>
-    
-     
-           <p itemprop="description" >攻击机：BlackArch靶机：Metasploitable2工具：msfconsole
-
-BlackArch的版本信息
-打开Metasploitable2后，ifconfig查看ip
-查看BlackArch的ip
-打开msfmsfconsole
-help search
-sear</p>
-        
-    
-    <time datetime="2016-03-27T17:56:26.000Z" itemprop="datePublished">2016-03-28</time>
+    <time datetime="2015-03-09T23:23:00.000Z" itemprop="datePublished">2015-03-10</time>
   </a>
 </section>
 
@@ -309,7 +170,7 @@ sear</p>
 
 
   <nav id="page-nav" class="clearfix unexpand">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 </div>

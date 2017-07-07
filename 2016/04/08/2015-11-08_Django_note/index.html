@@ -1,0 +1,615 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Django_note | JinLu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="JinLu">
+    
+
+    
+    <meta name="description" content="Django入门 MVC：模块–&amp;gt;视图–&amp;gt;控制器 模块只要和数据库进行交互，比如模型类的数据表，应用名_模块名.sql views视图就是显示界面用的，模板语言开发 客户端.发出请求–&amp;gt;控制器.控制器接收请求给视图或者模块，视图封装了一些html、css、js，内嵌模板引擎，模块和数据库交互，内嵌ORM框架，它们返回给控制器结果，然后给浏览器接收渲染 Django开源Web开发框">
+<meta name="keywords" content="Python,Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django_note">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/2015-11-08_Django_note/index.html">
+<meta property="og:site_name" content="JinLu's Blog">
+<meta property="og:description" content="Django入门 MVC：模块–&amp;gt;视图–&amp;gt;控制器 模块只要和数据库进行交互，比如模型类的数据表，应用名_模块名.sql views视图就是显示界面用的，模板语言开发 客户端.发出请求–&amp;gt;控制器.控制器接收请求给视图或者模块，视图封装了一些html、css、js，内嵌模板引擎，模块和数据库交互，内嵌ORM框架，它们返回给控制器结果，然后给浏览器接收渲染 Django开源Web开发框">
+<meta property="og:image" content="https://s25.postimg.org/4drttwhv3/p1_1.png">
+<meta property="og:image" content="https://s25.postimg.org/4vmz9r7fz/redirect.jpg">
+<meta property="og:updated_time" content="2017-07-07T11:22:07.206Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django_note">
+<meta name="twitter:description" content="Django入门 MVC：模块–&amp;gt;视图–&amp;gt;控制器 模块只要和数据库进行交互，比如模型类的数据表，应用名_模块名.sql views视图就是显示界面用的，模板语言开发 客户端.发出请求–&amp;gt;控制器.控制器接收请求给视图或者模块，视图封装了一些html、css、js，内嵌模板引擎，模块和数据库交互，内嵌ORM框架，它们返回给控制器结果，然后给浏览器接收渲染 Django开源Web开发框">
+<meta name="twitter:image" content="https://s25.postimg.org/4drttwhv3/p1_1.png">
+
+    
+    <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/unnamed4_n_mSY_icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="JinLu&#39;s Blog" title="JinLu&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/08/2015-11-08_Django_note/" title="Django_note" itemprop="url">Django_note</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-08T13:43:26.000Z" itemprop="datePublished"> Published 2016-04-08</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Django入门"><span class="toc-number">1.</span> <span class="toc-text">Django入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装虚拟环境"><span class="toc-number">2.</span> <span class="toc-text">安装虚拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重点"><span class="toc-number">3.</span> <span class="toc-text">重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#管理器"><span class="toc-number">4.</span> <span class="toc-text">管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询集"><span class="toc-number">5.</span> <span class="toc-text">查询集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View"><span class="toc-number">6.</span> <span class="toc-text">View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态保持"><span class="toc-number">7.</span> <span class="toc-text">状态保持</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="Django入门"><a href="#Django入门" class="headerlink" title="Django入门"></a>Django入门</h2><hr>
+<p><strong>MVC：模块–&gt;视图–&gt;控制器</strong></p>
+<p><strong>模块只要和数据库进行交互，比如模型类的数据表，应用名_模块名.sql</strong></p>
+<p><strong>views视图就是显示界面用的，模板语言开发</strong></p>
+<p><strong>客户端.发出请求–&gt;控制器.控制器接收请求给视图或者模块，视图封装了一些html、css、js，内嵌模板引擎，模块和数据库交互，内嵌ORM框架，它们返回给控制器结果，然后给浏览器接收渲染</strong></p>
+<p><strong>Django开源Web开发框架，是MVT</strong><br><strong>模块–&gt;视图–&gt;模板</strong><br><strong>模块和关系型数据库交互，如果和非关系型数据库交互，就引入第三方模块调用</strong><br>模块中有ORM，可以将模块对象转化为关系型数据库中的表，把数据库中的数据转换为python中的对象</p>
+<p><strong>使用sqlite数据库交互</strong></p>
+<h2 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h2><p><strong>安装pip</strong><br><code>apt-get install python-pip</code></p>
+<p><strong>安装virtualenv</strong><br><code>pip install virtualenv</code></p>
+<p><strong>安装python-virtualenv</strong><br><code>apt-get install python-virtualenv</code></p>
+<p><strong>安装virtualenvwrapper</strong><br><code>pip install virtualenvwrapper</code></p>
+<p><strong>创建目录存放虚拟环境</strong><br><code>mkdir $HOME/.virtualenvs</code></p>
+<p><strong>在用户环境变量~/.bashrc中添加行：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export WORKON_HOME=$HOME/.virtualenvs</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure></p>
+<p><strong>应用环境变量</strong><br><code>source ~/.bashrc</code></p>
+<p><strong>创建python虚拟环境</strong><br><code>mkvirtualenv py_django</code></p>
+<p><strong>进入虚拟环境</strong><br><code>workon py_django</code></p>
+<p><strong>退出虚拟环境</strong><br><code>deactivate</code></p>
+<p><strong>找一份配置好的虚拟环境里面的django，进入虚拟环境</strong><br><code>pip freeze&gt;list.txt</code></p>
+<p><strong>之后进另一个环境，安装</strong><br><code>pip install -r list.txt</code></p>
+<p><strong>解压tar包</strong><br><code>tar -xvf xxx.tar</code></p>
+<p><strong>1. 创建项目</strong><br><code>django-admin startproject 项目名</code></p>
+<p><strong>2. 创建应用</strong><br><code>python manage.py startapp 应用名</code></p>
+<p><strong>3. 安装应用，在项目的settings.py里面安装应用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">	... ...</div><div class="line">	&apos;应用名&apos;,</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p><strong>4. 测试服务器</strong><br><code>python manage.py runserver ip:8000或者python manage.py runserver</code></p>
+<p><strong>设计模型</strong><br><strong>在应用里面的models里面定义模型，继承自models.Model类，叫模型类</strong><br><strong>使用django进行数据库开发：<br>    (1)在models.py中定义模型类<br>    (2)生成数据文件，迁移数据<br>    (3)通过类和对象完成数据crud(增删改查缩写)</strong><br><br><br><strong>首先定义模型类：<br>在应用里面的models里面定义模型</strong><br><br><br><strong>5. 之后生成数据文件</strong><br><code>python manage.py makemigrations</code><br><br><br><strong>6. 迁移数据</strong><br><code>python manage.py migrate</code><br><br><br><strong>7. 在shell中进行数据库操作</strong><br><code>python manage.py shell</code><br><br><br><strong>后台管理：<br>    (1)管理界面本地化<br>    (2)创建超级管理员<br>    (3)注册模型类<br>    (4)自定义管理页面</strong><br><br><br><strong>8. 本地化显示，修改项目里面的setting.py文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LANGUAGE_CODE = &apos;zh-Hans&apos;</div><div class="line">TIME_ZONE = &apos;Asia/Shanghai&apos;</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>9. 创建超级管理员：</strong><br><code>python manage.py createsuperuser</code><br><br><br><strong>进入管理界面</strong><br><code>127.0.0.1：8000/admin</code><br><br><br><strong>10. 登录管理界面后，并没有图书，英雄的管理入口，所以要注册模型类，实现crud操作，修改应用里面的admin.py文件注册：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">from django.contrib import admin</div><div class="line">from models import *	# 导入./models.py中的BookInfo和HeroInfo</div><div class="line"></div><div class="line">class BookInfoAdmin(admin.ModelAdmin):	# 继承自admin.ModelAdmin类</div><div class="line">    list_display = [&apos;id&apos;, &apos;title&apos;, &apos;pub_date&apos;]	# list_display显示要显示的属性</div><div class="line"></div><div class="line"></div><div class="line">class HeroInfoAdmin(admin.ModelAdmin):</div><div class="line">    list_display = [&apos;id&apos;, &apos;name&apos;, &apos;content&apos;, &apos;gender&apos;, &apos;book&apos;]</div><div class="line"></div><div class="line"></div><div class="line">admin.site.register(BookInfo, BookInfoAdmin)	# 注册书类</div><div class="line">admin.site.register(HeroInfo, HeroInfoAdmin)	# 注册英雄类</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>视图：<br>    (1)定义视图<br>        ·视图就是一个python函数，被定义在views.py文件中<br>        ·视图的第一个参数是HttpRes对象ponse对象，包含返回给请求者的响应信息<br>    (2)配置URLconf</strong><br><br><br><strong>11. 定义视图：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">from django.shortcuts import render</div><div class="line">from django.http import HttpResponse</div><div class="line"></div><div class="line"></div><div class="line">def index(request):</div><div class="line">    return HttpResponse(&apos;hello world&apos;)</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>配置URLconf<br>·查找视图的过程：请求者在浏览器地址中输入url，请求到网站后，获取url信息，然后与编写好的URLconf逐条匹配，如果匹配成功返回对应的视图，如果都没有匹配，返回404错误<br>·一条URlconf中包括url规则和视图两部分<br>url规则可以使用正则<br>视图就是在views.py中定义的视图<br>·配置URLconf<br>在应用中先定义URLconf<br>包含到项目的URLconf中</strong><br><br><br><strong>12. 配置应用的URLconf，创建应用里面的urls.py文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">from django.conf.urls import url</div><div class="line">import views</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^$&apos;, views.index),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>13. 包含到项目的urls.py文件中，为urlpatterns列表增加项：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^admin/&apos;, include(admin.site.urls)),</div><div class="line">    url(r&apos;^&apos;, include(&apos;booktest.urls&apos;)),	# 增加包含应用里面的urls</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>在浏览器地址中访问127.0.0.1:8000/，返回hello world</strong><br><br><br><strong>模板：<br>·给请求者返回一个漂亮的页面，在Django中，把前端的内容定义在模板中，然后再把模板提交给视图调用，然后效果就出来了</strong><br><br><br><strong>14. 创建模板，在应用的同级目录下创建template文件夹，再在里面创建和应用同名的文件夹，之后创建一个index.html</strong><br><br><br><strong>15. 修改模板的路径，修改项目里面的setting.py文件，设置TEMPLATES的DIRS值：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">TEMPLATES = [</div><div class="line">    &#123;</div><div class="line">        &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,</div><div class="line">        &apos;DIRS&apos;: [os.path.hoin(BASE_DIR, &apos;templates&apos;)],</div><div class="line">        &apos;APP_DIRS&apos;: True,</div><div class="line">        ... ...</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>16. 定义模板，修改templates/booktest/index.html文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;</div><div class="line">&#123;%for i in list%&#125;</div><div class="line">&#123;&#123;i&#125;&#125;&lt;br&gt;</div><div class="line">&#123;%endfor%&#125;</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>17. 视图调用模板，先找到模板，之后定义上下文，再渲染模板，因为都要执行这三个操作，于是django提供了一个render函数封装代码，render方法包含三个参数，第一个参数是request对象，第二个参数是模板文件路径，第三个参数是字典，表示向模板中传递上下文的数据，修改应用里面的views.py文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line"></div><div class="line">from django.shortcuts import render</div><div class="line"></div><div class="line">def index(request):</div><div class="line">    context=&#123;&apos;title&apos;:&apos;图书列表&apos;,&apos;list&apos;:range(10)&#125;</div><div class="line">    return render(request,&apos;booktest/index.html&apos;,context)</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>18. 完成项目，定义视图，修改应用里面的views.py文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from django.shortcuts import render</div><div class="line">from models import BookInfo</div><div class="line"></div><div class="line"># 首页，展示所有图书</div><div class="line">def index(reqeust):</div><div class="line">    # 查询所有图书</div><div class="line">    booklist = BookInfo.objects.all()</div><div class="line">    # 将图书列表传递到模板中，然后渲染模板</div><div class="line">    context = &#123;&apos;booklist&apos;:booklist&#125;</div><div class="line">    return render(request, &apos;booktest/index.html&apos;, context)</div><div class="line"></div><div class="line"># 详细页，接收图书的编号，根据编号查询，再通过关系找到本图书的所有英雄并展示</div><div class="line">def detail(reqeust, id):</div><div class="line">    # 根据图书编号对应图书</div><div class="line">    hero = BookInfo.objects.get(pk=id)</div><div class="line">    context = &#123;&apos;book&apos;: hero&#125;</div><div class="line">    # 将图书信息传递到模板中，然后渲染模板</div><div class="line">    return render(reqeust, &apos;booktest/detail.html&apos;, context)</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>19. 定义URLconf，修改应用里面的urls.py文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">from django.conf.urls import url</div><div class="line"># 引入视图模块</div><div class="line">import views</div><div class="line">urlpatterns = [</div><div class="line">    # 配置首页url</div><div class="line">    url(r&apos;^$&apos;, views.index),</div><div class="line">    # 配置详细页url，\d+表示多个数字，小括号用于取值，建议复习下正则表达式</div><div class="line">    url(r&apos;^(\d+)$&apos;,views.detail),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>20. 修改templates/应用名/index.html文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;图书列表&lt;/h1&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">    &#123;# 遍历图书列表#&#125;</div><div class="line">    &#123;%for book in booklist%&#125;</div><div class="line">    &lt;li&gt;</div><div class="line">     &#123;# 输出图书名称，并设置超链接，链接地址是一个数字#&#125;</div><div class="line">      &lt;a href=&quot;&#123;&#123;book.id&#125;&#125;&quot;&gt;&#123;&#123;book.title&#125;&#125;&lt;/a&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">    &#123;%endfor%&#125;</div><div class="line">    &lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><br><br><strong>21. 创建templates/应用名/detail.html文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;&#123;&#123;book.btitle&#125;&#125;&lt;/h1&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">    &#123;# 通过关系找到本图书的所有英雄，并遍历#&#125;</div><div class="line">    &#123;%for hero in book.heroinfo_set.all%&#125;</div><div class="line">    &#123;# 输出英雄的姓名及描述#&#125;</div><div class="line">    &lt;li&gt;&#123;&#123;hero.name&#125;&#125;---&#123;&#123;hero.content&#125;&#125;&lt;/li&gt;</div><div class="line">    &#123;%endfor%&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><p><strong>查询filter(), get(), exclude()<br>比较运算符<br>逻辑运算符Q | ~<br>模糊查询：contains, startswith, endswith<br>范围查询：in=[]<br>空判断：isnull<br>两个属性的判断：F</strong></p>
+<hr>
+<p><strong>ORM：对象-关系型数据库映射</strong></p>
+<p><strong>低耦合，高内聚</strong></p>
+<p><strong>**MVC框架中的Model模块中包括ORM</strong><br><img src="https://s25.postimg.org/4drttwhv3/p1_1.png" alt=""></p>
+<p><strong># 关系字段类型：</strong><br><strong>ForeignKeyKe：一对多，把字段定义在多的一端中</strong></p>
+<p><strong>使用mysql交互</strong></p>
+<p><strong>1. 创建项目，创建应用</strong></p>
+<p><strong>2. 之后修改项目里面的setting.py文件，把应用写入INSTALLED_APPS，修改DATABASES，改为mysql交互，添加交互：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DATABASES = &#123;</div><div class="line">    &apos;default&apos;: &#123;</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,	# 修改为mysql</div><div class="line">        &apos;NAME&apos;:&apos;azhen&apos;,	# 数据库名</div><div class="line">        &apos;HOST&apos;:&apos;localhost&apos;,</div><div class="line">        &apos;PORT&apos;:3306,</div><div class="line">        &apos;USER&apos;:&apos;root&apos;,</div><div class="line">        &apos;PASSWORD&apos;:&apos;mysql&apos;,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>生成迁移文件，就是根据类生成sql脚本，迁移就是创建数据库表的过程</strong></p>
+<p><strong>3. 创建数据库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pmysql	# 使用用户名root，密码mysql，进入mysql数据库</div><div class="line">create database azhen charset=utf8;	# 创建azhen数据库，并设置类型utf8</div></pre></td></tr></table></figure></p>
+<p><strong>元选项：应用名称_模型类名称，数据表默认名字</strong></p>
+<p><strong>如果不指定表的名称为xxx，那么当表生成后，表的名字是：应用名称_模型类名称</strong></p>
+<p><strong>4. 创建模型类，再创建元类，指定数据库表名，之后生成迁移文件，再迁移文件，然后在数据库的指定表名中，添加数据(read和comment是mysql关键字)</strong></p>
+<p><strong>属性object：默认的django管理器，是Manager类型的对象，用于和数据库交互</strong></p>
+<h2 id="管理器"><a href="#管理器" class="headerlink" title="管理器"></a>管理器</h2><p><strong>django支持自定义管理器类，继承自models.Manager，它可以更改原始的查询集，可以向管理器的类中添加额外的方法</strong></p>
+<p><strong>5. 自己添加一个自定义管理器，在应用里面的models.py文件添加：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class BookInfoManager(models.Manager):</div><div class="line">    # 原始查询集的更改</div><div class="line">    def get_queryset(self):</div><div class="line">        return super(BookInfoManager, self).get_queryset().filter(isDelete=False)</div><div class="line"></div><div class="line"></div><div class="line">模型类</div><div class="line"></div><div class="line"></div><div class="line">books = BookInfoManager()</div></pre></td></tr></table></figure></p>
+<p><strong>7. 在自定义管理器中新增一个模型类方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 新增模型类的方法</div><div class="line">   def create(self, title, pub_date):</div><div class="line">       book = BookInfo()</div><div class="line">       book.title = title</div><div class="line">       book.pub_date = pub_date</div><div class="line">       book.bread = 0</div><div class="line">       book.bcomment = 0</div><div class="line">       book.isDelete = False</div><div class="line">       return book</div></pre></td></tr></table></figure></p>
+<p><strong>8. 展示图书信息，配置url，配置添加项目的urls</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^admin/&apos;, include(admin.site.urls)),</div><div class="line">    url(&apos;^&apos;, include(&apos;booktest.urls&apos;)),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><strong>9. 在应用里面创建一个urls.py文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">from django.conf.urls import url</div><div class="line">import views</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(&apos;^$&apos;, views.index),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><strong>10. 在应用里面的views.py里面配置index</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from django.shortcuts import render</div><div class="line"></div><div class="line"></div><div class="line">def index(request):</div><div class="line">    return render(request, &apos;booktest/index.html&apos;)</div></pre></td></tr></table></figure></p>
+<p><strong>11. 在应用的同级目录下创建模板templates/应用名/index.html</strong></p>
+<p><strong>12. 在应用的views.py里面查询数据，并返回给index.html：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">from django.shortcuts import render</div><div class="line">from models import BookIndo</div><div class="line"></div><div class="line"></div><div class="line">def index(request):</div><div class="line">    list = BookInfo.books.all()</div><div class="line">    context = &#123;&apos;booklist&apos;:list&#125;</div><div class="line">    return render(request, &apos;booktest/index.html&apos;, context)</div></pre></td></tr></table></figure></p>
+<p><strong>13. index视图显示：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">&#123;%for book in booklist%&#125;</div><div class="line">    &lt;li&gt;&#123;&#123;book.title&#125;&#125;&lt;/li&gt;</div><div class="line">&#123;%endfor%&#125;</div><div class="line">    &lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>14. 提示模板不存在，在项目的setting.py中修改：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">TEMPLATES = [</div><div class="line">    &#123;</div><div class="line">        &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,</div><div class="line">        &apos;DIRS&apos;: [os.path.join(&apos;templates&apos;)],	# 模板路径</div><div class="line">        ... ...</div></pre></td></tr></table></figure></p>
+<p><strong>逻辑删除数据表数据：</strong><br><code>update bookinfo set isDelete=0 where id=1;</code></p>
+<p><strong>15. 在index视图中添加删除和增加操作：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;/add/&quot;&gt;增加&lt;/a&gt;</div><div class="line">&lt;hr&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">&#123;%for book in booklist%&#125;</div><div class="line">    &lt;li&gt;&#123;&#123;book.title&#125;&#125;---&lt;a href=&quot;/&#123;&#123;book.id&#125;&#125;/&quot;&gt;删除&lt;/a&gt;&lt;/li&gt;</div><div class="line">&#123;%endfor%&#125;</div><div class="line">    &lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>16. 在应用的urls.py里面增加新的url：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">urlpatterns = [</div><div class="line">    url(&apos;^$&apos;, views.index),</div><div class="line">    url(&apos;^add/$&apos;, views.add),</div><div class="line">    url(&apos;^(\d+)/$&apos;, views.delete),</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><strong>17. 在应用里面的view.py定义一个增加一个删除函数，并导入重定向参数redirect：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">from django.shortcuts import render, redirect</div><div class="line">... ...</div><div class="line">def add(request):</div><div class="line">    book = BookInfo.books.create(&apos;流星蝴蝶剑&apos;, date(2017,1,1))</div><div class="line">    book.save()</div><div class="line">    return redirect(&apos;/&apos;)</div><div class="line"></div><div class="line"></div><div class="line">def delete(request,id):</div><div class="line">    book = BookInfo.books.get(id=id)</div><div class="line">    book.isDelete = True</div><div class="line">    book.save()</div><div class="line">    return redirect(&apos;/&apos;)	# 转向到首页</div></pre></td></tr></table></figure></p>
+<h2 id="查询集"><a href="#查询集" class="headerlink" title="查询集"></a>查询集</h2><p><strong>两大特性，一是：惰性查询并不会访问数据库获取数据，当index视图调用数据时，才会去数据库调用数据；二是：查询集的结果被保存，再次查询时会使用之前缓存的数据</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"># 显示前两个id书名</div><div class="line">list = BookInfo.books.all()[0:2]</div><div class="line"></div><div class="line"># 全部查询</div><div class="line">    list = BookInfo.books.all()</div><div class="line"></div><div class="line">    # 查询id=1的书</div><div class="line">    # list = BookInfo.books.filter(id=1)</div><div class="line"></div><div class="line">    # 查询书名包含‘龙’的书</div><div class="line">    # list = BookInfo.books.filter(btitle__contains=&apos;龙&apos;)</div><div class="line"></div><div class="line">    # 查询书名以‘剑’结尾的书</div><div class="line">    # list = BookInfo.books.filter(btitle__endswith=&apos;剑&apos;)</div><div class="line"></div><div class="line">    # 查询id是1,3,5的书</div><div class="line">    # list = BookInfo.books.filter(pk__in=[1,3,5])</div><div class="line"></div><div class="line">    # 查询id大于3的书</div><div class="line">    # list = BookInfo.books.filter(id__gt=3)</div><div class="line"></div><div class="line">    # 查询id不包括3的书</div><div class="line">    # list = BookInfo.books.exclude(id=3)</div><div class="line"></div><div class="line">    # 查询1980年的书</div><div class="line">    # list = BookInfo.books.filter(bpub_date__year=1980)</div><div class="line"></div><div class="line">    # 查询1980.1.1之后发表的书</div><div class="line">    # list = BookInfo.books.filter(bpub_date__gt=date(1980,1,1))</div><div class="line"></div><div class="line">    # 一对多，显示书名里面的英雄，用index2显示</div><div class="line">    # list = HeroInfo.objects.filter(hbook__btitle=&apos;天龙八部&apos;)</div><div class="line">    # context = &#123;&apos;herolist&apos;:list&#125;</div><div class="line">    # return render(request, &apos;booktest/index2.html&apos;, context)</div><div class="line"></div><div class="line">    # list = BookInfo.books.filter(bread__gt=F(&apos;bcommet&apos;))</div><div class="line">    # list = BookInfo.books.filter(bread__gt=F(&apos;bcommet&apos;)*2)</div><div class="line">    # list = BookInfo.books.filter(heroinfo__hcontent__contains=&apos;八&apos;)</div><div class="line"></div><div class="line">    # 逻辑与，惰性查询，xxx.filter(bread__gt=20, id__lt=3)之后，并不会访问数据库获取数据，当index视图调用数据时，才会去数据库调用数据，所以执行顺序是where bread &gt; 20 and id &lt; 3，而不是 先获取bread&gt;20 --&gt; 后获取id&lt;3</div><div class="line">    # list = BookInfo.books.filter(bread__gt=20, id__lt=3)</div><div class="line"></div><div class="line">    # list =BookInfo.books.filter(Q(bread__gt=20) | Q(id__lt=3))</div><div class="line">    # list = BookInfo.books.filter(~Q(id=3))</div><div class="line"></div><div class="line">    # 聚合函数aggregate,导包Sum</div><div class="line">    # result = BookInfo.books.aggregate(Sum(&apos;bread&apos;))</div><div class="line">    # result = BookInfo.books.count()</div><div class="line">    # print result</div></pre></td></tr></table></figure>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p><strong>URLconf视图被调用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">HttpRequest：GET、POST、COOKIES、Session</div><div class="line">HttpResponse：render()</div><div class="line">	(1)JsonResponse</div><div class="line">    (2)HttpResponseRedirect：redirect()</div><div class="line">    (3)set_cookie(键，值)</div><div class="line">```    </div><div class="line"></div><div class="line">## 视图</div><div class="line">**视图就是一个python函数，接收HttpRequest对象，返回HttpResponse**</div><div class="line"></div><div class="line">**URL和视图的匹配规则**</div><div class="line"></div><div class="line">URL匹配过程：</div><div class="line">http://127.0.0.1:8000/booktest/index/</div><div class="line">先匹配根项目下的urls，之后匹配到^booktest规则，之后通过包含的booktest.urls匹配到应用里面的urls，再匹配，之后匹配到^index/，再之后就会调用views里面的index</div><div class="line">![](https://s25.postimg.org/rt9qz91m7/RUL.png)</div><div class="line"></div><div class="line">*r&apos;^&apos;：防止转译字符\</div><div class="line">r&apos;\d&apos; == &apos;\\d&apos;*</div><div class="line"></div><div class="line">**获取参数**</div></pre></td></tr></table></figure></p>
+<p>urlpatterns = [<br>    url(‘^$’, views.index),<br>    url(r’^(?P<book_id>\d+)/$’, views.show),<br>]</book_id></p>
+<p>def show(request, book_id):<br>    return HttpResponse(‘show %s’%book_id)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**403错误，屏蔽cs|rf认证**</div><div class="line">_ _ _</div><div class="line"></div><div class="line">## HttpRequest对象</div></pre></td></tr></table></figure></p>
+<p>属性：<br>path<br>method<br>COOKIES<br>Session<br>GET、POST<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**get请求方式的参数：a=10&amp;b=30**</div></pre></td></tr></table></figure></p>
+<p>/1/？a=10&amp;b=30<br>request.GET<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**什么时候用GET：超链接请求的参数 --&gt; ?键=值&amp;键=值&amp;键=值**</div><div class="line">**什么时候用get，什么时候用getlist**</div><div class="line"></div><div class="line">**表单控件提交规则：以name为键，以value为值，构成键值提交</div><div class="line">	(1)单选按钮、多选按钮：被选中的提交</div><div class="line">    (2)如果没有name属性，就不提交**</div><div class="line">_ _ _</div><div class="line"></div><div class="line">## HttpResponse对象</div></pre></td></tr></table></figure></p>
+<p>render()<br>set_cookie()<br>JSONResponse<br>HttpResponseRedirect–redirect()<br>```</p>
+<p><strong>Redirect重定向：</strong><br><img src="https://s25.postimg.org/4vmz9r7fz/redirect.jpg" alt=""></p>
+<hr>
+<h2 id="状态保持"><a href="#状态保持" class="headerlink" title="状态保持"></a>状态保持</h2><p><strong>状态保持就是相当于网站记录了你的操作，如逛淘宝的最近浏览，两种方式：客户端使用Cookie，服务器端使用Session</strong></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Note/">Note</a>►<a class="article-category-link" href="/categories/Note/Python/">Python</a>►<a class="article-category-link" href="/categories/Note/Python/Django/">Django</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a><a href="/tags/Django/">Django</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/28/2016-03-28_Metasploit Samba服务器漏洞渗透/" title="Metasploit Samba服务器漏洞渗透">
+  <span>
+  Metasploit Samba服务器漏洞渗透</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/05/12/2016-05-12_Navicat_connection_MySQL_error/"  title="Navicat_connection_MySQL_error">
+ <span>Navicat_connection_MySQL_error
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/DataAnalysis/" title="DataAnalysis">DataAnalysis<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Django/" title="Django">Django<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Git/" title="Git">Git<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/" title="Other">Other<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/" title="Python">Python<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python-advanced/" title="Python_advanced">Python_advanced<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python语法/" title="Python语法">Python语法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/White-hat/" title="White_hat">White_hat<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/服务器部署/" title="服务器部署">服务器部署<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSR/" title="SSR">SSR<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/破解Wifi/" title="破解Wifi">破解Wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tor-browser/" title="Tor_browser">Tor_browser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://jinlu123.github.io/" target="_blank" title="Jinlu">Jinlu</a> © 2017 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

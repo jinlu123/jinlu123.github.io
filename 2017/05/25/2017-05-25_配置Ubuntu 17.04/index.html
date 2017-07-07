@@ -1,0 +1,593 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>配置Ubuntu 17.04 | JinLu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="JinLu">
+    
+
+    
+    <meta name="description" content="最近出了乌班图17.04，闲着没事配了一份，但是由于支持时间有点短，所以就不写sh了，直接给代码 配置Ubuntu 17.04首先让中文桌面变成英文的Desktop12export LANG=en_USxdg-user-dirs-gtk-update 之后保持现有的名称，勾选不再提醒 更新系统源，并升级软件和操作系统sudo -s    # 进入root apt-get install leafp">
+<meta name="keywords" content="linux,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置Ubuntu 17.04">
+<meta property="og:url" content="http://yoursite.com/2017/05/25/2017-05-25_配置Ubuntu 17.04/index.html">
+<meta property="og:site_name" content="JinLu's Blog">
+<meta property="og:description" content="最近出了乌班图17.04，闲着没事配了一份，但是由于支持时间有点短，所以就不写sh了，直接给代码 配置Ubuntu 17.04首先让中文桌面变成英文的Desktop12export LANG=en_USxdg-user-dirs-gtk-update 之后保持现有的名称，勾选不再提醒 更新系统源，并升级软件和操作系统sudo -s    # 进入root apt-get install leafp">
+<meta property="og:updated_time" content="2017-07-05T12:40:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置Ubuntu 17.04">
+<meta name="twitter:description" content="最近出了乌班图17.04，闲着没事配了一份，但是由于支持时间有点短，所以就不写sh了，直接给代码 配置Ubuntu 17.04首先让中文桌面变成英文的Desktop12export LANG=en_USxdg-user-dirs-gtk-update 之后保持现有的名称，勾选不再提醒 更新系统源，并升级软件和操作系统sudo -s    # 进入root apt-get install leafp">
+
+    
+    <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/unnamed4_n_mSY_icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="JinLu&#39;s Blog" title="JinLu&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/05/25/2017-05-25_配置Ubuntu 17.04/" title="配置Ubuntu 17.04" itemprop="url">配置Ubuntu 17.04</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
+		
+  <p class="article-time">
+    <time datetime="2017-05-25T15:24:11.000Z" itemprop="datePublished"> Published 2017-05-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Ubuntu-17-04"><span class="toc-number">1.</span> <span class="toc-text">配置Ubuntu 17.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新系统源，并升级软件和操作系统"><span class="toc-number">2.</span> <span class="toc-text">更新系统源，并升级软件和操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装mysql"><span class="toc-number">3.</span> <span class="toc-text">安装mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装虚拟环境"><span class="toc-number">4.</span> <span class="toc-text">安装虚拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django所需的依赖"><span class="toc-number">5.</span> <span class="toc-text">Django所需的依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy所需的依赖"><span class="toc-number">6.</span> <span class="toc-text">Scrapy所需的依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装软件"><span class="toc-number">7.</span> <span class="toc-text">安装软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌拼音"><span class="toc-number">7.1.</span> <span class="toc-text">谷歌拼音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime-3"><span class="toc-number">7.2.</span> <span class="toc-text">sublime_3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有道翻译"><span class="toc-number">7.3.</span> <span class="toc-text">有道翻译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pycharm"><span class="toc-number">7.4.</span> <span class="toc-text">Pycharm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jdk1-8"><span class="toc-number">7.5.</span> <span class="toc-text">jdk1.8</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p><strong>最近出了乌班图17.04，闲着没事配了一份，但是由于支持时间有点短，所以就不写sh了，直接给代码</strong><br><br></p>
+<h2 id="配置Ubuntu-17-04"><a href="#配置Ubuntu-17-04" class="headerlink" title="配置Ubuntu 17.04"></a>配置Ubuntu 17.04</h2><p><strong>首先让中文桌面变成英文的Desktop</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export LANG=en_US</div><div class="line">xdg-user-dirs-gtk-update</div></pre></td></tr></table></figure></p>
+<p><strong>之后保持现有的名称，勾选不再提醒</strong></p>
+<h2 id="更新系统源，并升级软件和操作系统"><a href="#更新系统源，并升级软件和操作系统" class="headerlink" title="更新系统源，并升级软件和操作系统"></a>更新系统源，并升级软件和操作系统</h2><p><code>sudo -s    # 进入root</code></p>
+<p><code>apt-get install leafpad</code></p>
+<p><code>leafpad /etc/apt/sources.list    # 修改更新源</code></p>
+<p><strong>源：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties</div><div class="line">deb http://archive.canonical.com/ubuntu xenial partner</div><div class="line">deb-src http://archive.canonical.com/ubuntu xenial partner</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse</div><div class="line"></div><div class="line">deb http://mirrors.163.com/ubuntu/ zesty main restricted universe multiverse</div><div class="line">deb http://mirrors.163.com/ubuntu/ zesty-security main restricted universe multiverse</div><div class="line">deb http://mirrors.163.com/ubuntu/ zesty-updates main restricted universe multiverse</div><div class="line">deb http://mirrors.163.com/ubuntu/ zesty-proposed main restricted universe multiverse</div><div class="line">deb http://mirrors.163.com/ubuntu/ zesty-backports main restricted universe multiverse</div><div class="line">deb-src http://mirrors.163.com/ubuntu/ zesty main restricted universe multiverse</div><div class="line">deb-src http://mirrors.163.com/ubuntu/ zesty-security main restricted universe multiverse</div><div class="line">deb-src http://mirrors.163.com/ubuntu/ zesty-updates main restricted universe multiverse</div><div class="line">deb-src http://mirrors.163.com/ubuntu/ zesty-proposed main restricted universe multiverse</div><div class="line">deb-src http://mirrors.163.com/ubuntu/ zesty-backports main restricted universe</div></pre></td></tr></table></figure></p>
+<p><strong>更新源，并更新软件，以及更新操作系统</strong><br><code>apt-get update &amp;&amp; apt-get upgrade &amp;&amp; apt-get dist-upgrade</code></p>
+<p><strong>安装vim，并设置行号</strong><br><code>apt-get install vim</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim ~/.vimrc</div><div class="line">添加set number</div><div class="line"></div><div class="line">vim ~/.bashrc</div><div class="line">添加alias vi=&apos;vim&apos;</div></pre></td></tr></table></figure>
+<p><strong>应用环境变量</strong><br><code>source ~/.bashrc</code></p>
+<p><strong>安装开源open-tools</strong><br><code>apt-get install open-vm-tools-desktop fuse</code></p>
+<p><code>shutdown -r now</code></p>
+<p><strong>安装htop</strong><br><code>apt-get install htop</code></p>
+<p><strong>安装ipython</strong><br><code>apt-get install ipython</code></p>
+<p><code>apt-get install ipython3</code></p>
+<hr>
+<h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p><strong>安装mysql</strong><br><code>apt-get install mysql-server</code></p>
+<p><code>apt-get install mysql-client</code></p>
+<p><code>apt-get install libmysqlclient-dev</code></p>
+<p><code>apt-get install net-tools</code></p>
+<p><strong>查看mysql运行状态</strong><br><code>netstat -tap | grep mysql</code></p>
+<p><strong>配置mysql允许任意主机登录</strong><br><code>mysql -uroot -p</code></p>
+<p><code>grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;mysql&#39; with grant option;</code></p>
+<p><code>FLUSH PRIVILEGES;</code></p>
+<p><strong>退出mysql</strong><br><code>exit</code></p>
+<p><strong>修改mysql配置文件，注释绑定本地ip</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/mysql/mysql.conf.d/mysqld.cnf</div><div class="line"># bind-address = 127.0.0.1</div></pre></td></tr></table></figure></p>
+<p><strong>重启mysql服务</strong><br><code>service mysql restart</code></p>
+<hr>
+<h2 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h2><p><strong>安装pip</strong><br><code>apt-get install python-pip</code></p>
+<p><strong>安装virtualenv</strong><br><code>pip install virtualenv</code></p>
+<p><strong>安装python-virtualenv</strong><br><code>apt-get install python-virtualenv</code></p>
+<p><strong>安装virtualenvwrapper</strong><br><code>pip install virtualenvwrapper</code></p>
+<p><strong>创建目录存放虚拟环境</strong><br><code>mkdir $HOME/.virtualenvs</code></p>
+<p><strong>在用户环境变量~/.bashrc中添加行：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export WORKON_HOME=$HOME/.virtualenvs</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div></pre></td></tr></table></figure></p>
+<p><strong>应用环境变量</strong><br><code>source ~/.bashrc</code></p>
+<p><strong>创建python虚拟环境</strong><br><code>mkvirtualenv xxx</code></p>
+<p><strong>进入虚拟环境</strong><br><code>workon xxx</code></p>
+<p><strong>退出虚拟环境</strong><br><code>deactivate</code></p>
+<p><strong>配置安装各类环境</strong><br><code>pip install -r xxx.txt</code></p>
+<h2 id="Django所需的依赖"><a href="#Django所需的依赖" class="headerlink" title="Django所需的依赖"></a>Django所需的依赖</h2><p><code>apt-get install python-django</code></p>
+<h2 id="Scrapy所需的依赖"><a href="#Scrapy所需的依赖" class="headerlink" title="Scrapy所需的依赖"></a>Scrapy所需的依赖</h2><p><code>apt-get install python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev</code></p>
+<hr>
+<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><h3 id="谷歌拼音"><a href="#谷歌拼音" class="headerlink" title="谷歌拼音"></a>谷歌拼音</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install fcitx</div><div class="line">apt-get install fcitx-googlepinyin</div></pre></td></tr></table></figure>
+<h3 id="sublime-3"><a href="#sublime-3" class="headerlink" title="sublime_3"></a>sublime_3</h3><p><strong>官网下载sublime text 3的ubuntu deb包，直接安装</strong><br><code>dpkg -i sublime-text_build-3126_amd64.deb</code></p>
+<p><strong>然后在/usr/share/applications找到sublime_text的图标，打开之后锁定到启动器</strong></p>
+<h3 id="有道翻译"><a href="#有道翻译" class="headerlink" title="有道翻译"></a>有道翻译</h3><p><strong>官网下载deepin版64位的deb包，直接安装</strong><br><code>dpkg -i youdao-dict_1.1.0-0-deepin_amd64.deb</code></p>
+<p><strong>提示依赖问题，安装依赖youdao-dict</strong><br><code>apt-get install youdao-dict</code></p>
+<p><strong>之后依旧提示依赖问题，用解决办法</strong><br><code>apt --fix-broken install</code></p>
+<p><strong>之后再重新安装有道词典</strong><br><code>dpkg -i youdao-dict_1.1.0-0-deepin_amd64.deb</code></p>
+<h3 id="Pycharm"><a href="#Pycharm" class="headerlink" title="Pycharm"></a>Pycharm</h3><p><strong>直接在官方下载deb包，然后解压到/usr/bin/目录下</strong><br>tar -zxvf pycharm-professional-2017.1.3.tar.gz -C /usr/bin/</p>
+<p><strong>之后在/usr/share/applications/里面新建图标，并打开，之后绑定到启动器</strong><br><code>leafpad /usr/share/applications/Pycharm.desktop</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[Desktop Entry]</div><div class="line">Type=Application</div><div class="line">Name=Pycharm</div><div class="line">GenericName=Pycharm3</div><div class="line">Comment=Pycharm3:The Python IDE</div><div class="line">Exec=&quot;/usr/bin/pycharm-2017.1.3/bin/pycharm.sh&quot; %f</div><div class="line">Icon=/usr/bin/pycharm-2017.1.3/bin/pycharm.png</div><div class="line">Terminal=pycharm</div><div class="line">Categories=Pycharm;</div></pre></td></tr></table></figure>
+<h3 id="jdk1-8"><a href="#jdk1-8" class="headerlink" title="jdk1.8"></a>jdk1.8</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">add-apt-repository ppa:webupd8team/java</div><div class="line">apt-get update</div><div class="line">apt-get install oracle-java8-installer</div></pre></td></tr></table></figure>
+<p><strong>配置用户变量，在最后添加</strong><br><code>vi ~/.bashrc</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/lib/jvm/java-8-oracle</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</div><div class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</div></pre></td></tr></table></figure>
+<p><strong>应用用户变量文件</strong><br><code>source ~/.bashrc</code></p>
+<p><strong>查看java版本</strong><br><code>java -version</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/Ubuntu/">Ubuntu</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/05/24/2017-05-24_关于翻墙的一些工具/" title="关于翻墙的一些工具">
+  <span>
+  关于翻墙的一些工具</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/06/03/2017-06-03_个人备忘录/"  title="个人备忘录">
+ <span>个人备忘录
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/DataAnalysis/" title="DataAnalysis">DataAnalysis<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Django/" title="Django">Django<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Git/" title="Git">Git<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/" title="Other">Other<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/" title="Python">Python<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python-advanced/" title="Python_advanced">Python_advanced<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python语法/" title="Python语法">Python语法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/White-hat/" title="White_hat">White_hat<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/服务器部署/" title="服务器部署">服务器部署<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSR/" title="SSR">SSR<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/破解Wifi/" title="破解Wifi">破解Wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tor-browser/" title="Tor_browser">Tor_browser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://jinlu123.github.io/" target="_blank" title="Jinlu">Jinlu</a> © 2017 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -1,0 +1,631 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Python_advanced | JinLu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="JinLu">
+    
+
+    
+    <meta name="description" content="Python_Advanced字符串的反转？12345678910# 方案一A=&amp;apos;abcdefg&amp;apos;A[::-1]# 方案二b = &amp;apos;&amp;apos;for i in A:	b = i + bprint b  lambda函数123add = lambda x,y:x+ya = add(2,4)print a  删除下面list里面的重复元素123A=[1,2,3,4,5,">
+<meta name="keywords" content="Python,Advanced">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python_advanced">
+<meta property="og:url" content="http://yoursite.com/2016/02/22/2016-02-22_Python_advanced/index.html">
+<meta property="og:site_name" content="JinLu's Blog">
+<meta property="og:description" content="Python_Advanced字符串的反转？12345678910# 方案一A=&amp;apos;abcdefg&amp;apos;A[::-1]# 方案二b = &amp;apos;&amp;apos;for i in A:	b = i + bprint b  lambda函数123add = lambda x,y:x+ya = add(2,4)print a  删除下面list里面的重复元素123A=[1,2,3,4,5,">
+<meta property="og:updated_time" content="2017-07-05T17:11:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python_advanced">
+<meta name="twitter:description" content="Python_Advanced字符串的反转？12345678910# 方案一A=&amp;apos;abcdefg&amp;apos;A[::-1]# 方案二b = &amp;apos;&amp;apos;for i in A:	b = i + bprint b  lambda函数123add = lambda x,y:x+ya = add(2,4)print a  删除下面list里面的重复元素123A=[1,2,3,4,5,">
+
+    
+    <link rel="alternative" href="atom.xml" title="JinLu&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/unnamed4_n_mSY_icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="JinLu&#39;s Blog" title="JinLu&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/22/2016-02-22_Python_advanced/" title="Python_advanced" itemprop="url">Python_advanced</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-22T15:43:26.000Z" itemprop="datePublished"> Published 2016-02-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-Advanced"><span class="toc-number">1.</span> <span class="toc-text">Python_Advanced</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的反转？"><span class="toc-number">1.1.</span> <span class="toc-text">字符串的反转？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lambda函数"><span class="toc-number">1.2.</span> <span class="toc-text">lambda函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除下面list里面的重复元素"><span class="toc-number">1.3.</span> <span class="toc-text">删除下面list里面的重复元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写一个函数，用来取出1—100中9的倍数或者有数字9的所有整数"><span class="toc-number">1.4.</span> <span class="toc-text">手写一个函数，用来取出1—100中9的倍数或者有数字9的所有整数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法复杂度"><span class="toc-number">1.5.</span> <span class="toc-text">算法复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tuple和list的转换"><span class="toc-number">1.6.</span> <span class="toc-text">tuple和list的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match-和search-的区别？"><span class="toc-number">1.7.</span> <span class="toc-text">match()和search()的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简述Django重定向的原理？"><span class="toc-number">1.8.</span> <span class="toc-text">简述Django重定向的原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django调用模板过程？"><span class="toc-number">1.9.</span> <span class="toc-text">Django调用模板过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对cookie和session的理解"><span class="toc-number">1.10.</span> <span class="toc-text">对cookie和session的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式的特点，手写一个单例模式"><span class="toc-number">1.11.</span> <span class="toc-text">单例模式的特点，手写一个单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#左连接，右连接以及内连接的理解"><span class="toc-number">1.12.</span> <span class="toc-text">左连接，右连接以及内连接的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写出下列代码运行结果："><span class="toc-number">1.13.</span> <span class="toc-text">写出下列代码运行结果：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL"><span class="toc-number">2.</span> <span class="toc-text">SQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web"><span class="toc-number">3.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#防御csrf攻击的常用方法"><span class="toc-number">3.1.</span> <span class="toc-text">防御csrf攻击的常用方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Re"><span class="toc-number">4.</span> <span class="toc-text">Re</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配一个IP地址"><span class="toc-number">4.1.</span> <span class="toc-text">匹配一个IP地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Django"><span class="toc-number">5.</span> <span class="toc-text">Django</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spider"><span class="toc-number">6.</span> <span class="toc-text">Spider</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tornado"><span class="toc-number">7.</span> <span class="toc-text">Tornado</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flask"><span class="toc-number">8.</span> <span class="toc-text">Flask</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">9.</span> <span class="toc-text">Other</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面这段代码的输出结果是什么？"><span class="toc-number">9.1.</span> <span class="toc-text">下面这段代码的输出结果是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面这段代码的输出结果是什么？-1"><span class="toc-number">9.2.</span> <span class="toc-text">下面这段代码的输出结果是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面这段代码的输出结果将是什么？"><span class="toc-number">9.3.</span> <span class="toc-text">下面这段代码的输出结果将是什么？</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Python-Advanced"><a href="#Python-Advanced" class="headerlink" title="Python_Advanced"></a>Python_Advanced</h1><h2 id="字符串的反转？"><a href="#字符串的反转？" class="headerlink" title="字符串的反转？"></a>字符串的反转？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 方案一</div><div class="line">A=&apos;abcdefg&apos;</div><div class="line">A[::-1]</div><div class="line"></div><div class="line"># 方案二</div><div class="line">b = &apos;&apos;</div><div class="line">for i in A:</div><div class="line">	b = i + b</div><div class="line"></div><div class="line">print b</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="lambda函数"><a href="#lambda函数" class="headerlink" title="lambda函数"></a>lambda函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">add = lambda x,y:x+y</div><div class="line">a = add(2,4)</div><div class="line">print a</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="删除下面list里面的重复元素"><a href="#删除下面list里面的重复元素" class="headerlink" title="删除下面list里面的重复元素"></a>删除下面list里面的重复元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A=[1,2,3,4,5,1,5]</div><div class="line">B=set(A)</div><div class="line">A=list(B)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="手写一个函数，用来取出1—100中9的倍数或者有数字9的所有整数"><a href="#手写一个函数，用来取出1—100中9的倍数或者有数字9的所有整数" class="headerlink" title="手写一个函数，用来取出1—100中9的倍数或者有数字9的所有整数"></a>手写一个函数，用来取出1—100中9的倍数或者有数字9的所有整数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># 方案一</div><div class="line">def num():</div><div class="line">    a = []</div><div class="line">    for i in range(1,100):</div><div class="line">        # 取的是整除9，(i-9)整除10，90-99之间带9的数</div><div class="line">        if i % 9 == 0 or (i-9) % 10 == 0 or ((i-90)&gt;0 and (i-90)&lt;9):</div><div class="line">            a.append(i)</div><div class="line"></div><div class="line">    print(a)</div><div class="line">    print(&quot;一共%d个数&quot;%len(a))</div><div class="line"></div><div class="line">num()</div><div class="line"></div><div class="line"># 方案二</div><div class="line">def start():</div><div class="line">	list = []</div><div class="line">	for i in range(1,101):</div><div class="line">        # 整除9，带有9字符的i</div><div class="line">		if i%9==0 or (&quot;9&quot; in str(i)):</div><div class="line">			print i</div><div class="line">			list.append(i)</div><div class="line"></div><div class="line">	print len(list)</div><div class="line"></div><div class="line">start()</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h2><p><strong>算法复杂度包括时间复杂度和空间复杂度，空间复杂度现在考虑的情况很少，存储空间比较充裕，通常关注的都是时间复杂度</strong><br><br></p>
+<h2 id="tuple和list的转换"><a href="#tuple和list的转换" class="headerlink" title="tuple和list的转换"></a>tuple和list的转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a = (1, 2, 3, 4)</div><div class="line">b = list(a)</div><div class="line">c = tuple(b)</div><div class="line">a = c</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="match-和search-的区别？"><a href="#match-和search-的区别？" class="headerlink" title="match()和search()的区别？"></a>match()和search()的区别？</h2><p><strong>match函数只能够从字符串的开始位置进行匹配，search是可以匹配字符串的任意位置，但也是只会返回找到的第一个匹配的模式</strong><br><br><br><strong>下面代码会输出什么：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">def f(x,l=[]):</div><div class="line">    for i in range(x):	# 左闭右开，x=2，range(0, 1)</div><div class="line">        l.append(i*i)</div><div class="line">    print l</div><div class="line">print id(l)</div><div class="line"># f(x= 2)</div><div class="line">f(2)</div><div class="line"># f(x = 3, l = [3, 2, 1])</div><div class="line">f(3,[3,2,1])</div><div class="line"># f(x= 2)</div><div class="line">f(3)	# 如果列表没有定义值，会使用默认列表，默认列表是上个f(2)的返回值[0, 1]</div><div class="line"></div><div class="line"># 输出</div><div class="line">[0, 1]</div><div class="line">140407520303368</div><div class="line">[3, 2, 1, 0, 1, 4]</div><div class="line">140407520442704</div><div class="line">[0, 1, 0, 1, 4]</div><div class="line">140407520303368</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="简述Django重定向的原理？"><a href="#简述Django重定向的原理？" class="headerlink" title="简述Django重定向的原理？"></a>简述Django重定向的原理？</h2><p><strong>定义一个red1和一个red2，在浏览器中输入red1时，浏览器请求到服务器，服务器视图还是red1，返回浏览器一个302，浏览器接收到302，通过重定向再向服务器发送请求，此时请求的是red2，之后red2的结果再返回浏览器</strong><br><br></p>
+<h2 id="Django调用模板过程？"><a href="#Django调用模板过程？" class="headerlink" title="Django调用模板过程？"></a>Django调用模板过程？</h2><p><strong>配置项目urls，项目的urls包含应用的urls，应用中的urls指向应用中的视图中的某个函数，视图调用函数，函数再调用模板，模板再模板</strong><br><br></p>
+<h2 id="对cookie和session的理解"><a href="#对cookie和session的理解" class="headerlink" title="对cookie和session的理解"></a>对cookie和session的理解</h2><p><strong>cookie就是客户端存储数据的一种键值对，session是服务器存储数据的一种键值对。<br>浏览器先向服务器请求数据，发一个服务器向浏览器写cookie的信息，之后response就会对浏览器进行cookie的写操作，之后如果浏览器请求服务器，就用 cookie请求网站通过保存的id和服务器中的session的id进行匹配</strong><br><br></p>
+<h2 id="单例模式的特点，手写一个单例模式"><a href="#单例模式的特点，手写一个单例模式" class="headerlink" title="单例模式的特点，手写一个单例模式"></a>单例模式的特点，手写一个单例模式</h2><p><strong>创建一个从始至终只有一个实例对象的类，可以用多种方式实现，模块，new方法，装饰器，元类</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Nums(object):</div><div class="line">    _instance = None</div><div class="line">    def __new__(cls, *args, **kwargs):</div><div class="line">        if not cls._instance:</div><div class="line">            cls._instance = super(Nums, cls).__new__(cls, *args, **kwargs)  </div><div class="line">        return cls._instance  </div><div class="line"></div><div class="line">class MyClass(Nums):  </div><div class="line">    a = 1</div><div class="line"></div><div class="line">one = MyClass()</div><div class="line">two = MyClass()</div><div class="line">one == two  # True</div><div class="line">one is two  # True</div><div class="line"># 保证一个类永远只有一个实例对象</div><div class="line">print(one)</div><div class="line">print(id(one))</div><div class="line">print(two)</div><div class="line">print(id(two))</div><div class="line"># 把类的实例和一个类变量 _instance 关联起来，如果cls._instance是None，则创建实例，否则直接返回cls._instance</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="左连接，右连接以及内连接的理解"><a href="#左连接，右连接以及内连接的理解" class="headerlink" title="左连接，右连接以及内连接的理解"></a>左连接，右连接以及内连接的理解</h2><p><strong>左连接就是两个表匹配到的数据作为查询结果，左边表中特有的数据，对于右表中不存在的数据用空null填充</strong></p>
+<p><strong>右连接和左连接相反，就是两个表匹配到的数据作为查询结果，右边表中特有的数据，对于左表中不存在的数据用空null填充</strong></p>
+<p><strong>内连接就是两个表匹配到的数据作为查询结果，结果至少有一个匹配到的数据</strong><br><br></p>
+<h2 id="写出下列代码运行结果："><a href="#写出下列代码运行结果：" class="headerlink" title="写出下列代码运行结果："></a>写出下列代码运行结果：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import copy  </div><div class="line">a = [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]</div><div class="line">b = a	# 浅拷，拷贝引用</div><div class="line">c = copy.copy(a)	# 浅拷，拷贝外层的内存地址</div><div class="line">d = copy.deepcopy(a)	# 深拷，拷贝每一层内存地址，称为深拷贝</div><div class="line">a.append(5)</div><div class="line">a[4].append(&apos;c&apos;)</div><div class="line">print &apos;a = &apos;, a =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]</div><div class="line">print &apos;b = &apos;, b =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]	# 浅拷贝引用</div><div class="line">print &apos;c = &apos;, c =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]]	# 列表里面的列表有c，因为浅拷贝的外层内存地址，但是列表里面的列表添加数据，对于浅拷的外层内存地址来说，是不变的，所以会输出[1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]](列表是可变的，列表里面的列表添加值，地址不变，所以只拷贝到外层的内存地址，又因为a里面添加值 ，相应的只拷贝到外层的内存地址所以不拷贝)</div><div class="line">print &apos;d = &apos;, d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="防御csrf攻击的常用方法"><a href="#防御csrf攻击的常用方法" class="headerlink" title="防御csrf攻击的常用方法"></a>防御csrf攻击的常用方法</h2><p><strong>(1)对于重要操作不使用get请求方式</strong></p>
+<p><strong>(2)采用post请求方式</strong></p>
+<p><strong>(3)在post请求方式的表单中添加@{\%csrf_token}@</strong></p>
+<p><strong>(4)输入验证码</strong><br><br></p>
+<h1 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h1><h2 id="匹配一个IP地址"><a href="#匹配一个IP地址" class="headerlink" title="匹配一个IP地址"></a>匹配一个IP地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># 已知ip地址，1.0.0.1-255.255.255.255，配置路由时使用0.0.0.0</div><div class="line"></div><div class="line"># 匹配第一个数：1-255</div><div class="line"></div><div class="line"># 拆分匹配法</div><div class="line">1-9 --&gt; \d</div><div class="line"></div><div class="line">10-99 --&gt; [1-9]\d</div><div class="line"></div><div class="line">100-199 --&gt; 1\d&#123;2&#125;</div><div class="line"></div><div class="line">200-249 --&gt; 2[0-4]\d</div><div class="line"></div><div class="line">250-255 --&gt; 25[0-5]</div><div class="line"></div><div class="line"></div><div class="line"># 结合正则</div><div class="line">1-99 [1-9]?\d</div><div class="line">1-199 1\d&#123;2&#125;|[1-9]?\d</div><div class="line">1-249 2[0-4]\d|((1\d&#123;2&#125;)|([1-9]?\d))</div><div class="line">1-255 (25[0-5]|2[0-4]\d|((1\d&#123;2&#125;)|([1-9]?\d)))</div><div class="line"></div><div class="line"># 最后的正则</div><div class="line">((?:(?:25[0-5]|2[0-4]\d|((1\d&#123;2&#125;)|([1-9]?\d)))\.)&#123;3&#125;(?:25[0-5]|2[0-4]\d|((1\d&#123;2&#125;)|([1-9]?\d))))</div></pre></td></tr></table></figure>
+<h1 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h1><h1 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h1><h1 id="Tornado"><a href="#Tornado" class="headerlink" title="Tornado"></a>Tornado</h1><h1 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h1><h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h2 id="下面这段代码的输出结果是什么？"><a href="#下面这段代码的输出结果是什么？" class="headerlink" title="下面这段代码的输出结果是什么？"></a>下面这段代码的输出结果是什么？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">def num_list(val, list=[]):</div><div class="line">    list.append(val)</div><div class="line">    return list</div><div class="line">list1 = num_list(10)      </div><div class="line">list2 = num_list(123,[])    </div><div class="line">list3 = num_list(&apos;a&apos;)       </div><div class="line"></div><div class="line"></div><div class="line"># list[10]</div><div class="line"># list[10, a]</div><div class="line">list1 = num_list(10)</div><div class="line"></div><div class="line"># 仅仅是传递了一个新的[]而已，不会把原先的替换掉</div><div class="line"># list[123]</div><div class="line">list2 = num_list(123,[])</div><div class="line"></div><div class="line"># list[10, a]</div><div class="line">list3 = num_list(&apos;a&apos;)</div><div class="line"> </div><div class="line">print &quot;list1 = %s&quot; % list1  # list[10, a]</div><div class="line">print &quot;list2 = %s&quot; % list2  # list[123]</div><div class="line">print &quot;list3 = %s&quot; % list3  # list[10, a]</div><div class="line"></div><div class="line">上面代码输出结果是：</div><div class="line">list1 = [10, &apos;a&apos;]</div><div class="line">list2 = [123]</div><div class="line">list3 = [10, &apos;a&apos;]</div><div class="line"></div><div class="line">很多人都会误认为list1=[10],list3=[‘a’],因为他们以为每次num_list被调用时，列表参数的默认值都将被设置为[].但实际上的情况是，新的默认列表只在函数被定义的那一刻创建一次。</div><div class="line"></div><div class="line">当num_list被没有指定特定参数list调用时，这组list的值随后将被使用。这是因为带有默认参数的表达式在函数被定义的时候被计算，不是在调用的时候被计算。因此list1和list3是在同一个默认列表上进行操作（计算）的。而list2是在一个分离的列表上进行操作（计算）的。（通过传递一个自有的空列表作为列表参数的数值）。</div><div class="line"></div><div class="line">num_list的定义可以作如下修改。</div><div class="line"></div><div class="line">尽管，创建一个新的列表，没有特定的列表参数。</div><div class="line"></div><div class="line">下面这段代码可能能够产生想要的结果。</div><div class="line"></div><div class="line">def num_list(val, list=None):</div><div class="line">  if list is None:</div><div class="line">    list = []</div><div class="line">  list.append(val)</div><div class="line">  return list</div><div class="line"></div><div class="line">通过上面的修改，输出结果将变成：</div><div class="line"></div><div class="line">list1 = [10]</div><div class="line">list2 = [123]</div><div class="line">list3 = [&apos;a&apos;]</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="下面这段代码的输出结果是什么？-1"><a href="#下面这段代码的输出结果是什么？-1" class="headerlink" title="下面这段代码的输出结果是什么？"></a>下面这段代码的输出结果是什么？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">def multipliers():</div><div class="line">  return [lambda x : i * x for i in range(4)]</div><div class="line"># 认为i是0 1 2 3，，，2*0，2*1，2*2，2*3</div><div class="line"># m(2) --&gt; m(x) 0 2 4 6 --&gt; 错的</div><div class="line"># 此时真值i已经被闭包成了3，，，3*2</div><div class="line"># m(2) --&gt; m(x) 6 6 6 6 --&gt; 错的</div><div class="line">print [m(2) for m in multipliers()]</div><div class="line"></div><div class="line">你如何修改上面的multipliers的定义产生想要的结果？</div><div class="line">上面代码输出的结果是[6, 6, 6, 6] (不是我们想的[0, 2, 4, 6])。</div><div class="line"></div><div class="line">上述问题产生的原因是Python闭包的延迟绑定。这意味着内部函数被调用时，参数的值在闭包内进行查找。因此，当任何由multipliers()返回的函数被调用时，i的值将在附近的范围进行查找。那时，不管返回的函数是否被调用，for循环已经完成，i被赋予了最终的值3。</div><div class="line"></div><div class="line">因此，每次返回的函数乘以传递过来的值3，因为上段代码传过来的值是2，它们最终返回的都是6。(3*2)碰巧的是，《The Hitchhiker’s Guide to Python》也指出，在与lambdas函数相关也有一个被广泛被误解的知识点，不过跟这个case不一样。由lambda表达式创造的函数没有什么特殊的地方，它其实是和def创造的函数式一样的。</div><div class="line"></div><div class="line">下面是解决这一问题的一些方法。</div><div class="line"></div><div class="line">一种解决方法就是用Python生成器。</div><div class="line"></div><div class="line">def multipliers():</div><div class="line">  for i in range(4): yield lambda x : i * x</div><div class="line"></div><div class="line">另外一个解决方案就是创造一个闭包，利用默认函数立即绑定。</div><div class="line"></div><div class="line">def multipliers():</div><div class="line">  return [lambda x, i=i : i * x for i in range(4)]</div><div class="line"></div><div class="line">还有种替代的方案是，使用偏函数：</div><div class="line"></div><div class="line">from functools import partial</div><div class="line">from operator import mul</div><div class="line"> </div><div class="line">def multipliers():</div><div class="line">  return [partial(mul, i) for i in range(4)]</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="下面这段代码的输出结果将是什么？"><a href="#下面这段代码的输出结果将是什么？" class="headerlink" title="下面这段代码的输出结果将是什么？"></a>下面这段代码的输出结果将是什么？</h2><p>class Parent(object):<br>    x = 1</p>
+<p>class Child1(Parent):<br>    pass</p>
+<p>class Child2(Parent):<br>    pass</p>
+<p>print Parent.x, Child1.x, Child2.x<br>Child1.x = 2<br>print Parent.x, Child1.x, Child2.x<br>Parent.x = 3<br>print Parent.x, Child1.x, Child2.x</p>
+<p>输出结果将是：</p>
+<p>1 1 1<br>1 2 1<br>3 2 3</p>
+<p>让很多人困惑或惊讶的是最后一行输出为什么是3 2 3 而不是 3 2 1.为什么在改变parent.x的同时也改变了child2.x的值？但与此同时没有改变Child1.x的值？</p>
+<p>此答案的关键是，在Python中，类变量在内部是以字典的形式进行传递。</p>
+<p>如果一个变量名没有在当前类下的字典中发现。则在更高级的类（如它的父类）中尽心搜索直到引用的变量名被找到。（如果引用变量名在自身类和更高级类中没有找到，将会引发一个属性错误。）</p>
+<p>因此,在父类中设定x = 1,让变量x类(带有值1)能够在其类和其子类中被引用到。这就是为什么第一个打印语句输出结果是1 1 1</p>
+<p>因此，如果它的任何一个子类被覆写了值（例如说，当我们执行语句Child.x = 2）,这个值只在子类中进行了修改。这就是为什么第二个打印语句输出结果是1 2 1</p>
+<p>最终，如果这个值在父类中进行了修改，（例如说，当我们执行语句Parent.x = 3）,这个改变将会影响那些还没有覆写子类的值（在这个例子中就是Child2）这就是为什么第三打印语句输出结果是3 2 3</p>
+<p>4、下面这段代码在Python2下输出结果将是什么？请解释。</p>
+<p>def div1(x,y):<br>    print “%s/%s = %s” % (x, y, x/y)</p>
+<p>def div2(x,y):<br>    print “%s//%s = %s” % (x, y, x//y)</p>
+<p>div1(5,2)<br>div1(5.,2)<br>div2(5,2)<br>div2(5.,2.)</p>
+<p>在Python3下结果会有怎样的不同？（当然，假设上述打印语句被转换成Python3的语法）</p>
+<p>在Python2中，上述代码输出将是</p>
+<p>5/2 = 2<br>5.0/2 = 2.5<br>5//2 = 2<br>5.0//2.0 = 2.0</p>
+<p>默认情况下，Python 2 自动执行整形计算如果两者都是整数。因此,5/2 结果是2，而5./2结果是2.5</p>
+<p>注意，在Python2中，你可以通过增加以下引用来覆写这个行为。</p>
+<p>from future import division</p>
+<p>同时要注意的是，//操作符将总是执行整形除法，不管操作符的类型。这就是为什么即使在Python 2中5.0//2.0的结果是2.0。然而在Python3中，没有此类特性，</p>
+<p>例如，在两端都是整形的情况下，它不会执行整形除法</p>
+<p>因此，在Python3中，将会是如下结果：</p>
+<p>5/2 = 2.5<br>5.0/2 = 2.5<br>5//2 = 2<br>5.0//2.0 = 2.0</p>
+<p>5、下面代码的输出结果将是什么？</p>
+<p>list = [‘a’, ‘b’, ‘c’, ‘d’, ‘e’]<br>print list[10:]</p>
+<p>下面的代码将输出[],不会产生IndexError错误。就像所期望的那样，尝试用超出成员的个数的index来获取某个列表的成员。</p>
+<p>例如，尝试获取list[10]和之后的成员，会导致IndexError.</p>
+<p>然而，尝试获取列表的切片，开始的index超过了成员个数不会产生IndexError,而是仅仅返回一个空列表。</p>
+<p>这成为特别让人恶心的疑难杂症，因为运行的时候没有错误产生，导致bug很难被追踪到。</p>
+<p>6、考虑下列代码片段：</p>
+<p>list = [ [ ] ] * 5<br>list  # output?<br>list[0].append(10)<br>list  # output?<br>list[1].append(20)<br>list  # output?<br>list.append(30)<br>list  # output?</p>
+<p>2,4,6,8行将输出什么结果？试解释。</p>
+<p>输出的结果如下：</p>
+<p>[[], [], [], [], []]<br>[[10], [10], [10], [10], [10]]<br>[[10, 20], [10, 20], [10, 20], [10, 20], [10, 20]]<br>[[10, 20], [10, 20], [10, 20], [10, 20], [10, 20], 30]</p>
+<p>解释如下：</p>
+<p>第一行的输出结果直觉上很容易理解，例如 list = [ [ ] ] <em> 5 就是简单的创造了5个空列表。然而，理解表达式list=[ [ ] ] </em> 5的关键一点是它不是创造一个包含五个独立列表的列表，而是它是一个创建了包含对同一个列表五次引用的列表。只有了解了这一点，我们才能更好的理解接下来的输出结果。</p>
+<p>list[0].append(10) 将10附加在第一个列表上。</p>
+<p>但由于所有5个列表是引用的同一个列表，所以这个结果将是：</p>
+<p>[[10], [10], [10], [10], [10]]</p>
+<p>同理，list[1].append(20)将20附加在第二个列表上。但同样由于5个列表是引用的同一个列表，所以输出结果现在是：</p>
+<p>[[10, 20], [10, 20], [10, 20], [10, 20], [10, 20]].</p>
+<p>作为对比， list.append(30)是将整个新的元素附加在外列表上，因此产生的结果是： [[10, 20], [10, 20], [10, 20], [10, 20], [10, 20], 30].</p>
+<p>7、Given a list of N numbers。</p>
+<p>给定一个含有N个数字的列表。</p>
+<p>使用单一的列表生成式来产生一个新的列表，该列表只包含满足以下条件的值：</p>
+<p>(a)偶数值<br>(b)元素为原始列表中偶数切片。</p>
+<p>例如，如果list[2]包含的值是偶数。那么这个值应该被包含在新的列表当中。因为这个数字同时在原始列表的偶数序列（2为偶数）上。然而，如果list[3]包含一个偶数，</p>
+<p>那个数字不应该被包含在新的列表当中，因为它在原始列表的奇数序列上。<br>对此问题的简单解决方法如下：</p>
+<p>[x for x in list[::2] if x%2 == 0]</p>
+<p>例如，给定列表如下：</p>
+<p>list = [ 1 , 3 , 5 , 8 , 10 , 13 , 18 , 36 , 78 ]</p>
+<p>列表生成式[x for x in list[::2] if x%2 == 0] 的结果是，</p>
+<p>[10, 18, 78]</p>
+<p>这个表达式工作的步骤是，第一步取出偶数切片的数字，</p>
+<p>第二步剔除其中所有奇数。</p>
+<p>给定以下字典的子类：</p>
+<p>class DefaultDict(dict):<br>  def <strong>missing</strong>(self, key):<br>    return []</p>
+<p>8、下面的代码能够运行么？为什么？</p>
+<p>d = DefaultDict()<br>d[‘florp’] = 127</p>
+<p>能够运行。</p>
+<p>当key缺失时，执行DefaultDict类，字典的实例将自动实例化这个数列。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Note/">Note</a>►<a class="article-category-link" href="/categories/Note/Python/">Python</a>►<a class="article-category-link" href="/categories/Note/Python/Python-advanced/">Python_advanced</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a><a href="/tags/Advanced/">Advanced</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/02/11/2016-02-11_DataAnalysis_note/" title="DataAnalysis_note">
+  <span>
+  DataAnalysis_note</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/28/2016-03-28_Metasploit Samba服务器漏洞渗透/"  title="Metasploit Samba服务器漏洞渗透">
+ <span>Metasploit Samba服务器漏洞渗透
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/DataAnalysis/" title="DataAnalysis">DataAnalysis<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Django/" title="Django">Django<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Git/" title="Git">Git<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MySQL/" title="MySQL">MySQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/" title="Other">Other<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/" title="Python">Python<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python-advanced/" title="Python_advanced">Python_advanced<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Python语法/" title="Python语法">Python语法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Python/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/White-hat/" title="White_hat">White_hat<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Other/服务器部署/" title="服务器部署">服务器部署<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSR/" title="SSR">SSR<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/破解Wifi/" title="破解Wifi">破解Wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tornado/" title="Tornado">Tornado<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tor-browser/" title="Tor_browser">Tor_browser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://jinlu123.github.io/" target="_blank" title="Jinlu">Jinlu</a> © 2017 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
