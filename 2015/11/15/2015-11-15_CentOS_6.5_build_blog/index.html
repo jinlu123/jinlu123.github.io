@@ -12,7 +12,7 @@
 
     
     <meta name="description" content="服务器：腾讯云CentOS 6.5 x32 域名：阿里云top域名trojanazhen.top 远程SSH：Xshell 5远程FTP：Xftp 5  配置安全组服务器创建好后，修改linux的权限，配置安全组 开启linux的22端口 配置XShell配置XShell文件——属性，修改ASCII 127，解决退格键乱码 调整高级设置 添加复制和粘贴的快捷键 文件——新建，名称随便填写，协议默认">
-<meta name="keywords" content="CentOS,lnmp,linux">
+<meta name="keywords" content="linux,CentOS,lnmp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS_6.5_build_blog">
 <meta property="og:url" content="http://yoursite.com/2015/11/15/2015-11-15_CentOS_6.5_build_blog/index.html">
@@ -92,7 +92,7 @@
 				<h1 class="site-name"><a href="/" title="JinLu&#39;s Blog">JinLu&#39;s Blog</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -108,7 +108,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -131,14 +131,14 @@
 		<a href="/about" title="JinLu" target="_blank" itemprop="author">JinLu</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-14T17:56:26.000Z" itemprop="datePublished"> Published 2015-11-15</time>
+    <time datetime="2015-11-14T17:56:26.000Z" itemprop="datePublished"> 發表於 2015-11-15</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置安全组"><span class="toc-number">1.</span> <span class="toc-text">配置安全组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置XShell"><span class="toc-number">2.</span> <span class="toc-text">配置XShell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装screen"><span class="toc-number">3.</span> <span class="toc-text">安装screen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装lnmp"><span class="toc-number">4.</span> <span class="toc-text">安装lnmp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加端口"><span class="toc-number">5.</span> <span class="toc-text">添加端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加网站域名"><span class="toc-number">6.</span> <span class="toc-text">添加网站域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名解析"><span class="toc-number">7.</span> <span class="toc-text">域名解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决中文乱码"><span class="toc-number">8.</span> <span class="toc-text">解决中文乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx404解决办法"><span class="toc-number">9.</span> <span class="toc-text">Nginx404解决办法</span></a></li></ol>
 		
@@ -208,7 +208,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CentOS/">CentOS</a><a href="/tags/lnmp/">lnmp</a><a href="/tags/linux/">linux</a>
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/CentOS/">CentOS</a><a href="/tags/lnmp/">lnmp</a>
   </div>
 
 </div>
@@ -242,10 +242,10 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 <div id="authorInfo">
 	
@@ -269,7 +269,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -342,7 +342,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -366,10 +366,6 @@
 			
 		
 			
-				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/BlackArch/" title="BlackArch">BlackArch<sup>2</sup></a></li>
 			
 		
@@ -378,15 +374,19 @@
 			
 		
 			
+				<li><a href="/tags/Penetration-test/" title="Penetration_test">Penetration_test<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/跑包/" title="跑包">跑包<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali-Rolling/" title="Kali_Rolling">Kali_Rolling<sup>1</sup></a></li>
+				<li><a href="/tags/CentOS/" title="CentOS">CentOS<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Penetration-os/" title="Penetration_os">Penetration_os<sup>1</sup></a></li>
+				<li><a href="/tags/lnmp/" title="lnmp">lnmp<sup>1</sup></a></li>
 			
 		
 			
@@ -410,19 +410,19 @@
 			
 		
 			
-				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/U盘中毒/" title="U盘中毒">U盘中毒<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/root/" title="root">root<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/login/" title="login">login<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/穷举PIN/" title="穷举PIN">穷举PIN<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML-CSS-JS-JQ/" title="HTML+CSS+JS+JQ">HTML+CSS+JS+JQ<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -609,7 +609,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
